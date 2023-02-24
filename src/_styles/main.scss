@@ -1,0 +1,14 @@
+body {
+  margin: 0 !important;
+}
+
+#root {
+  display: block;
+  width: 100%;
+}
+
+.MuiSelect-root {
+  &::before {
+    border-bottom-color: '#222222' !important;
+  }
+}
