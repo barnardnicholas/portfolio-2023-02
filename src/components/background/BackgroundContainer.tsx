@@ -6,7 +6,6 @@ import Example from '@components/background/patterns/WavyLines';
 import { animated, config, useSpring } from 'react-spring';
 import ConcentricAnimation from './concentricAnimation/ConcentricAnimation';
 import GradientOverlay from './GradientOverlay';
-import useUpdateMousePosition from '@hooks/useUpdateMousePosition';
 
 const mouseMovementPx = 4;
 const dimensionOffset = mouseMovementPx * 2;
@@ -61,7 +60,8 @@ const BackgroundContainer = () => {
           alignItems: 'center',
         }}
       >
-        <ConcentricAnimation />
+        {/* <ConcentricAnimation /> */}
+        <Example width={w} height={h} />
         <GradientOverlay />
       </Box>
     );
@@ -84,8 +84,8 @@ const BackgroundContainer = () => {
       <animated.div
         style={{ position: 'relative', width: bgWidth, height: bgHeight, ...slideStyles }}
       >
-        {/* <Example width={bgWidth} height={bgHeight} /> */}
-        <ConcentricAnimation />
+        <Example width={bgWidth} height={bgHeight} />
+        {/* <ConcentricAnimation /> */}
         <GradientOverlay />
       </animated.div>
     </Box>

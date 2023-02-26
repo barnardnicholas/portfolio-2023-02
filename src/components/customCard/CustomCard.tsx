@@ -13,7 +13,6 @@ const CustomCard: React.FC<CustomCardProps> = ({ sx = {}, variant = 'outlined', 
         ...sx,
       }}
       variant={variant}
-      elevation={1}
     >
       {children}
     </Card>

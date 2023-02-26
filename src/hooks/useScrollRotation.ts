@@ -1,3 +1,6 @@
+import { windowDimensionsAtom } from '@/atoms/atoms';
+import { useTheme } from '@mui/material';
+import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { lerp, randomRange } from '../utils/utils';
 
@@ -16,6 +19,12 @@ const rotations: Rotation[] = Array(9)
   }));
 
 const useScrollRotation = () => {
+  const {
+    breakpoints: {
+      values: { sm },
+    },
+  } = useTheme();
+  const [{ w }] = useAtom(windowDimensionsAtom);
   const [rotation, setRotation] = useState<{ x: number; y: number }>({
     x: rotations[0].x,
     y: rotations[0].y,
@@ -24,6 +33,7 @@ const useScrollRotation = () => {
   useEffect(() => {
     const onScroll: EventListener = () => {
       try {
+        if (w < sm) return;
         const nextRotation = rotations
           .filter((rot: Rotation) => rot.offset > window.scrollY)
           .sort((a: Rotation, b: Rotation) => a.offset - b.offset)[0];
@@ -52,7 +62,7 @@ const useScrollRotation = () => {
     window.addEventListener('scroll', onScroll);
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [sm, w]);
 
   return {
     rotation,

@@ -2,6 +2,10 @@ import React from 'react';
 import { Bar } from '@visx/shape';
 import { Group } from '@visx/group';
 import { Pattern as CustomPattern } from '@visx/pattern';
+import useUpdateMousePosition from '@hooks/useUpdateMousePosition';
+import { useTheme } from '@mui/material';
+import { useAtom } from 'jotai';
+import { windowDimensionsAtom } from '@/atoms/atoms';
 
 const defaultMargin = {
   top: 0,
@@ -58,6 +62,13 @@ const WavyLinesBG: React.FC<ItemProps> = ({ id, prefersReducedMotion }) => {
 };
 
 export default function Example({ width, height, margin = defaultMargin }: PatternProps) {
+  const {
+    breakpoints: {
+      values: { sm },
+    },
+  } = useTheme();
+  const [{ w }] = useAtom(windowDimensionsAtom);
+  useUpdateMousePosition(!!(w < sm));
   // use non-animated components if prefers-reduced-motion is set
   const prefersReducedMotionQuery =
     typeof window === 'undefined' ? false : window.matchMedia('(prefers-reduced-motion: reduce)');
