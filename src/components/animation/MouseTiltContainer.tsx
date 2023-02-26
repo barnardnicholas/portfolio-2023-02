@@ -21,13 +21,6 @@ const getTilterPosition = (
   return { aX, aY };
 };
 
-interface RectProps {
-  t: number;
-  b: number;
-  l: number;
-  r: number;
-}
-
 const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
   disableOnMobile = true,
   onlyOnHover = true,
@@ -86,11 +79,11 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
     from: { transform: 'rotateX(0deg) rotateY(0deg) translateZ(0)' },
     to: {
       transform: `rotateX(${tilterPosition.aX}deg) rotateY(${tilterPosition.aY}deg) translateZ(${
-        isHovering ? '20px' : '0px'
+        isHovering && riseOnHover ? '20px' : '0px'
       })`,
-      boxShadow: `0px ${isHovering ? '3px' : '0px'} ${isHovering ? '6px' : '0px'} ${
-        isHovering ? '2px' : '0px'
-      } rgba(0,0,0,0.3)`,
+      boxShadow: `0px ${isHovering && riseOnHover ? '3px' : '0px'} ${
+        isHovering && riseOnHover ? '6px' : '0px'
+      } ${isHovering && riseOnHover ? '2px' : '0px'} rgba(0,0,0,0.3)`,
     },
   });
 
