@@ -82,13 +82,22 @@ function Home() {
           </Card>
         </Box>
       </Box>
-      <Box sx={{ height: '66vh', display: 'grid', gridTemplateRows: '1fr' }}>
+      <Box
+        className="gridbox content-right"
+        sx={{
+          height: '66vh',
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: '1fr 2fr' },
+          gridTemplateAreas: { xs: `"content"`, md: `". content"` },
+        }}
+      >
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
+            gridArea: 'content',
           }}
         >
           <Card
@@ -107,7 +116,6 @@ function Home() {
             <Typography variant="body1">{loremIpsum[0]}</Typography>
           </Card>
         </Box>
-        <Box></Box>
       </Box>
       {/* <Box sx={{ mb: 3 }}>
         {['Chip', 'Chip', 'Chip', 'Chip'].map((label: string, i: number) => (
