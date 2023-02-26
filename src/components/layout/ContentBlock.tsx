@@ -13,7 +13,18 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ sx = {}, position, children
         ...sx,
       }}
     >
-      {children}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: { xs: 'stretch', md: 'center' },
+          justifyContent: 'center',
+          gridArea: 'content',
+          maxWidth: 'calc(100vw - 2rem)',
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   );
 };
