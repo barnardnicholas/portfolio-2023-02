@@ -4,22 +4,4 @@ export const loremIpsum = [
   `Calm down, Marty, I didn't disintegrate anything. The molecular structure of Einstein and the car are completely intact. You got a permit for that? I'm gonna be at the dance. It was meant to be. Anyway, if Grandpa hadn't hit him, then none of you would have been born. You do?`,
 ];
 
-export const cards = [
-  {
-    title: 'Title',
-    subtitle: 'This is a card',
-    excerpt: 'The molecular structure of Einstein and the car are completely intact.',
-  },
-  {
-    title: 'Title',
-    subtitle: 'This is a card',
-    excerpt: 'The molecular structure of Einstein and the car are completely intact.',
-  },
-  {
-    title: 'Title',
-    subtitle: 'This is a card',
-    excerpt: 'The molecular structure of Einstein and the car are completely intact.',
-  },
-];
-
 export const techStack = ['React', 'Typescript', 'SCSS', 'Node'];

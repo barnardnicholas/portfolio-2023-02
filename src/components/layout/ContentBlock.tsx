@@ -7,7 +7,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ sx = {}, position, children
     <Box
       className={`gridbox content-${position}`}
       sx={{
-        height: '66vh',
+        mb: 4,
         display: 'grid',
         ...contentBlockStyles[position],
         ...sx,

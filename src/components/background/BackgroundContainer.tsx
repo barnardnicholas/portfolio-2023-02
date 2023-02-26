@@ -1,9 +1,9 @@
+import { useMemo } from 'react';
 import { mouseXYAtom, windowDimensionsAtom } from '@/atoms/atoms';
 import { Box } from '@mui/material';
 import { useAtom } from 'jotai';
-import Example from '@pages/patterns/WavyLines';
+import Example from '@components/patterns/WavyLines';
 import { animated, config, useSpring } from 'react-spring';
-import { useMemo } from 'react';
 
 const mouseMovementPx = 4;
 const dimensionOffset = mouseMovementPx * 2;

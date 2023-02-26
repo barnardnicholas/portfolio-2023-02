@@ -4,6 +4,7 @@ import { Box, Card, Chip, Container, Stack, Typography } from '@mui/material';
 import { loremIpsum, techStack } from './constants';
 import MouseTiltContainer from '@components/animation/MouseTiltContainer';
 import ContentBlock from '@components/layout/ContentBlock';
+import CustomCard from '@components/customCard/CustomCard';
 
 function Home() {
   return (
@@ -21,17 +22,8 @@ function Home() {
           }}
         >
           <MouseTiltContainer>
-            <Card
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minWidth: { md: '50vw' },
-                pt: { xs: 3, md: 6 },
-                pb: { xs: 3, md: 6 },
-              }}
-              variant="outlined"
+            <CustomCard
+              sx={{ minWidth: { md: '50vw' }, pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 } }}
             >
               <Typography sx={{ mb: 0, textAlign: 'center' }} variant="h1">
                 Nick Barnard
@@ -45,13 +37,12 @@ function Home() {
                     key={`${label}-${i}`}
                     label={label}
                     clickable
-                    // onDelete={() => console.log(`Delete ${label}`)}
                     sx={{ mb: 1, mr: i < techStack.length ? 1 : 0 }}
                     onClick={() => console.log(`Click ${label}`)}
                   />
                 ))}
               </Box>
-            </Card>
+            </CustomCard>
           </MouseTiltContainer>
         </Box>
       </Box>
@@ -65,21 +56,9 @@ function Home() {
             gridArea: 'content',
           }}
         >
-          <Card
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minWidth: { md: '50vw' },
-              pt: { xs: 3, md: 6 },
-              pb: { xs: 3, md: 6 },
-            }}
-            variant="outlined"
-            // elevation={1}
-          >
+          <CustomCard sx={{ minWidth: { md: '50vw' }, pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 } }}>
             <Typography variant="body1">{loremIpsum[0]}</Typography>
-          </Card>
+          </CustomCard>
         </Box>
       </ContentBlock>
       <ContentBlock position="left">
@@ -92,21 +71,9 @@ function Home() {
             gridArea: 'content',
           }}
         >
-          <Card
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minWidth: { md: '50vw' },
-              pt: { xs: 3, md: 6 },
-              pb: { xs: 3, md: 6 },
-            }}
-            variant="outlined"
-            // elevation={1}
-          >
+          <CustomCard sx={{ minWidth: { md: '50vw' }, pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 } }}>
             <Typography variant="body1">{loremIpsum[0]}</Typography>
-          </Card>
+          </CustomCard>
         </Box>
       </ContentBlock>
       <ContentBlock position="center">
@@ -119,21 +86,9 @@ function Home() {
             gridArea: 'content',
           }}
         >
-          <Card
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minWidth: { md: '50vw' },
-              pt: { xs: 3, md: 6 },
-              pb: { xs: 3, md: 6 },
-            }}
-            variant="outlined"
-            // elevation={1}
-          >
+          <CustomCard sx={{ minWidth: { md: '50vw' }, pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 } }}>
             <Typography variant="body1">{loremIpsum[0]}</Typography>
-          </Card>
+          </CustomCard>
         </Box>
       </ContentBlock>
     </Container>
