@@ -1,0 +1,23 @@
+@keyframes bg-rotate {
+    0% {
+      transform: rotateX(15deg) rotateY(25deg);
+    }
+    25% {
+      transform: rotateX(5deg) rotateY(15deg);
+    }
+    75% {
+      transform: rotateX(20deg) rotateY(30deg);
+    }
+    100% {
+      transform: rotateX(15deg) rotateY(25deg);
+    }
+  }
+  
+  @keyframes bg-layer-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

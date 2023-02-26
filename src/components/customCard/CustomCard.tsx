@@ -9,7 +9,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ sx = {}, variant = 'outlined', 
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#292931AA',
+        backgroundColor: '#292931CC',
         ...sx,
       }}
       variant={variant}
