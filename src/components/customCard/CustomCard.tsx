@@ -5,7 +5,6 @@ const CustomCard: React.FC<CustomCardProps> = ({ sx = {}, variant = 'outlined', 
   return (
     <Card
       sx={{
-        position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
