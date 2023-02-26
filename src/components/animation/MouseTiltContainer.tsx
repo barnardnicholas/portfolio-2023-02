@@ -27,7 +27,6 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
   maxTiltDeg = 3,
   disabled = false,
   riseOnHover = true,
-  tapToBounceOnMobile = true,
   children,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -77,11 +76,6 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
     }
   };
 
-  const handleSingleBounce = () => {
-    if (tapToBounceOnMobile && w < sm)
-      setTilterPosition({ aX: Math.random() * maxTiltDeg, aY: Math.random() * maxTiltDeg });
-  };
-
   const tiltStyles = useSpring({
     config: { ...config.wobbly },
     from: { transform: 'rotateX(0deg) rotateY(0deg) translateZ(0)' },
@@ -107,7 +101,6 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onTouchStart={handleSingleBounce}
       ref={ref}
     >
       <animated.div className="mouse-tilter" style={{ ...tiltStyles }}>
@@ -123,7 +116,6 @@ interface MouseTiltContainerProps extends PropsWithChildren {
   disableOnMobile?: boolean;
   disabled?: boolean;
   riseOnHover?: boolean;
-  tapToBounceOnMobile?: boolean;
 }
 
 export default MouseTiltContainer;
