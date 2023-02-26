@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { mouseXYAtom, windowDimensionsAtom } from '@/atoms/atoms';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { useAtom } from 'jotai';
 import Example from '@components/patterns/WavyLines';
 import { animated, config, useSpring } from 'react-spring';
@@ -18,9 +18,16 @@ const getOffset = (w: number, h: number, x: number, y: number, offsetPx: number)
   return { oX: floatX * offsetPx * -1, oY: floatY * offsetPx * -1 };
 };
 
-function BackgroundContainer() {
+const BackgroundContainer = () => {
+  const {
+    breakpoints: {
+      values: { sm },
+    },
+  } = useTheme();
+
   const [{ w, h }] = useAtom(windowDimensionsAtom);
   const [{ x, y }] = useAtom(mouseXYAtom);
+  const effectDisabled = w < sm;
 
   const { oX, oY } = useMemo(() => getOffset(w, h, x, y, mouseMovementPx), [w, h, x, y]);
 
@@ -34,6 +41,26 @@ function BackgroundContainer() {
       transform: `translateX(${oX}px) translateY(${oY}px)`,
     },
   });
+
+  if (effectDisabled)
+    return (
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: -1,
+          overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Example width={w} height={h} />
+      </Box>
+    );
 
   return (
     <Box
@@ -57,6 +84,6 @@ function BackgroundContainer() {
       </animated.div>
     </Box>
   );
-}
+};
 
 export default BackgroundContainer;
