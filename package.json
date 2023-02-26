@@ -44,10 +44,12 @@
   "devDependencies": {
     "@0x219/commitlint-config": "1.0.2",
     "@commitlint/cli": "17.0.3",
+    "@types/jest": "^29.4.0",
     "@types/lodash": "^4.14.184",
     "@types/node": "^18.11.18",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
+    "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
     "@vitejs/plugin-legacy": "2.0.1",
