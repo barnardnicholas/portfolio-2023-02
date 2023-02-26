@@ -51,8 +51,8 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
     if (!effectDisabled && ref.current) {
       try {
         const { left, top, width, height } = ref.current.getBoundingClientRect();
-        const eX = e.clientX - left; //x position within the element.
-        const eY = e.clientY - top; //y position within the element.
+        const eX = e.clientX - left;
+        const eY = e.clientY - top;
         const throttled = throttle(
           () =>
             setTilterPosition(
@@ -66,12 +66,14 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
   };
 
   const handleMouseEnter = () => {
-    setIsHovering(true);
+    if (!effectDisabled) setIsHovering(true);
   };
 
   const handleMouseLeave = () => {
-    setIsHovering(false);
-    setTilterPosition({ aX: 0, aY: 0 });
+    if (!effectDisabled) {
+      setIsHovering(false);
+      setTilterPosition({ aX: 0, aY: 0 });
+    }
   };
 
   const tiltStyles = useSpring({
@@ -83,7 +85,7 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
       })`,
       boxShadow: `0px ${isHovering && riseOnHover ? '3px' : '0px'} ${
         isHovering && riseOnHover ? '6px' : '0px'
-      } ${isHovering && riseOnHover ? '2px' : '0px'} rgba(0,0,0,0.3)`,
+      } ${isHovering && riseOnHover ? '2px' : '0px'} rgba(0,0,0,0.2)`,
     },
   });
 

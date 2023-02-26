@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Card, Chip, Container, Stack, Typography } from '@mui/material';
+import { Box, Card, Chip, Container, Stack, Typography } from '@mui/material';
 
 import { loremIpsum, techStack } from './constants';
 import MouseTiltContainer from '@components/animation/MouseTiltContainer';
