@@ -33,6 +33,7 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
   onlyOnHover = true,
   maxTiltDeg = 3,
   disabled = false,
+  riseOnHover = true,
   children,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -46,6 +47,7 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
   const effectDisabled = disabled || (disableOnMobile && w < sm);
 
   const [tilterPosition, setTilterPosition] = useState({ aX: 0, aY: 0 });
+  const [isHovering, setIsHovering] = useState<boolean>(false);
 
   useEffect(() => {
     if (!onlyOnHover && !effectDisabled)
@@ -70,15 +72,25 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
     }
   };
 
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
   const handleMouseLeave = () => {
+    setIsHovering(false);
     setTilterPosition({ aX: 0, aY: 0 });
   };
 
   const tiltStyles = useSpring({
     config: { ...config.wobbly },
-    from: { transform: 'rotateX(0deg) rotateY(0deg)' },
+    from: { transform: 'rotateX(0deg) rotateY(0deg) translateZ(0)' },
     to: {
-      transform: `rotateX(${tilterPosition.aX}deg) rotateY(${tilterPosition.aY}deg)`,
+      transform: `rotateX(${tilterPosition.aX}deg) rotateY(${tilterPosition.aY}deg) translateZ(${
+        isHovering ? '20px' : '0px'
+      })`,
+      boxShadow: `0px ${isHovering ? '3px' : '0px'} ${isHovering ? '6px' : '0px'} ${
+        isHovering ? '2px' : '0px'
+      } rgba(0,0,0,0.3)`,
     },
   });
 
@@ -92,6 +104,7 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
         transformStyle: 'preserve-3d',
       }}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={ref}
     >
@@ -107,6 +120,7 @@ interface MouseTiltContainerProps extends PropsWithChildren {
   onlyOnHover?: boolean;
   disableOnMobile?: boolean;
   disabled?: boolean;
+  riseOnHover?: boolean;
 }
 
 export default MouseTiltContainer;

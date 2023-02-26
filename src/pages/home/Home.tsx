@@ -32,7 +32,6 @@ function Home() {
                 pb: { xs: 3, md: 6 },
               }}
               variant="outlined"
-              elevation={1}
             >
               <Typography sx={{ mb: 0, textAlign: 'center' }} variant="h1">
                 Nick Barnard
