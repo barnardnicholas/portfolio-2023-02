@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, Chip, Container, Grid, Link, Stack, Typography } from '@mui/material';
+import { Box, Card, Chip, Grid, Link, Stack, Typography } from '@mui/material';
 
 import { loremIpsum, techStack } from './constants';
 import MouseTiltContainer from '@components/animation/MouseTiltContainer';
@@ -8,7 +8,7 @@ import CustomCard from '@components/customCard/CustomCard';
 
 function Home() {
   return (
-    <Container>
+    <>
       <Stack sx={{ h: '66.6vh' }}></Stack>
 
       <Box sx={{ height: '66vh', display: 'grid', gridTemplateRows: '1fr 1fr', mb: '20vh' }}>
@@ -22,9 +22,7 @@ function Home() {
           }}
         >
           <MouseTiltContainer>
-            <CustomCard
-              sx={{ minWidth: { md: '50vw' }, pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 } }}
-            >
+            <CustomCard sx={{ pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 }, minWidth: '100%' }}>
               <Typography sx={{ mb: 0, textAlign: 'center' }} variant="h1">
                 Nick Barnard
               </Typography>
@@ -46,13 +44,13 @@ function Home() {
           </MouseTiltContainer>
         </Box>
       </Box>
-      <ContentBlock position="right">
+      <ContentBlock position="center">
         <CustomCard
           sx={{
             alignItems: 'flex-start',
-            minWidth: { md: '50vw' },
             pt: { xs: 3, md: 6 },
             pb: { xs: 3, md: 6 },
+            minWidth: '100%',
           }}
         >
           <Typography variant="h2">Summary</Typography>
@@ -100,9 +98,9 @@ function Home() {
         <CustomCard
           sx={{
             alignItems: 'flex-start',
-            minWidth: { md: '50vw' },
             pt: { xs: 3, md: 6 },
             pb: { xs: 3, md: 6 },
+            minWidth: '100%',
           }}
         >
           <Typography variant="h2">Tech Stack</Typography>
@@ -171,9 +169,9 @@ function Home() {
         <CustomCard
           sx={{
             alignItems: 'flex-start',
-            minWidth: { md: '50vw' },
             pt: { xs: 3, md: 6 },
             pb: { xs: 3, md: 6 },
+            minWidth: '100%',
           }}
         >
           <Typography variant="h2">Agency Work: 2020-Present</Typography>
@@ -220,9 +218,9 @@ function Home() {
         <CustomCard
           sx={{
             alignItems: 'flex-start',
-            minWidth: { md: '50vw' },
             pt: { xs: 3, md: 6 },
             pb: { xs: 3, md: 6 },
+            minWidth: '100%',
           }}
         >
           <Typography variant="h2">PORTFOLIO & OTHER PROJECTS</Typography>
@@ -280,7 +278,7 @@ function Home() {
           </Typography>
         </CustomCard>
       </ContentBlock>
-    </Container>
+    </>
   );
 }
 

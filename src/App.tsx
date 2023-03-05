@@ -4,14 +4,17 @@ import './_styles/main.scss';
 import Home from '@pages/home/Home';
 import BackgroundContainer from '@components/background/BackgroundContainer';
 import useUpdateWindowDimensions from '@hooks/useUpdateWindowDimensions';
+import { Container } from '@mui/material';
 
 function App() {
   useUpdateWindowDimensions();
   return (
     <Suspense fallback={<></>}>
       <div className="App">
-        <BackgroundContainer />
-        <Home />
+        <Container>
+          <BackgroundContainer />
+          <Home />
+        </Container>
       </div>
     </Suspense>
   );
