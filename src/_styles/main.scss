@@ -2,13 +2,12 @@
 
 body {
   margin: 0 !important;
+  @include standardTransitions();
 }
 
 #root {
   display: block;
   width: 100%;
-
-  @include transitionColors();
 }
 
 .MuiSelect-root {
