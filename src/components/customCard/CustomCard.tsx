@@ -1,3 +1,4 @@
+import { standardTransitions } from '@/theme/constants';
 import { Card, SxProps, Theme, useTheme } from '@mui/material';
 import { addOpacityToColor } from '@utils/utils';
 import React, { MouseEventHandler, PropsWithChildren } from 'react';
@@ -18,6 +19,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
         justifyContent: 'center',
         backgroundColor: addOpacityToColor(theme.palette.background.paper, 0.66),
         cursor: !!onClick ? 'pointer' : 'inherit',
+        transition: standardTransitions(theme),
         ...sx,
       }}
       variant={variant}

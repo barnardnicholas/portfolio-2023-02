@@ -1,8 +1,10 @@
-import { Box, Chip, SxProps, Theme } from '@mui/material';
+import { standardTransitions } from '@/theme/constants';
+import { Box, Chip, SxProps, Theme, useTheme } from '@mui/material';
 import { contacts } from '@pages/home/constants';
 import React, { PropsWithChildren } from 'react';
 
 const ContactLinks: React.FC<ContactLinksProps> = ({ sx = {} }) => {
+  const theme = useTheme();
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1, ...sx }}>
       {contacts.map(({ name, IconComponent, link }, i: number) => (
@@ -18,6 +20,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({ sx = {} }) => {
               pr: '0rem',
               pl: '0rem',
             },
+            transition: standardTransitions(theme),
           }}
           component="a"
           href={link}

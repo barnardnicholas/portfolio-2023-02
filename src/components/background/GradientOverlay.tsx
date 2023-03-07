@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, useTheme } from '@mui/material';
 import { addOpacityToColor } from '@utils/utils';
+import { standardTransitions } from '@/theme/constants';
 
 function GradientOverlay() {
   const theme = useTheme();
@@ -15,6 +16,7 @@ function GradientOverlay() {
         left: 0,
         right: 0,
         bottom: 0,
+        transition: standardTransitions(theme),
         background: `radial-gradient(
     circle,
     ${color} 0%,

@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { useTheme } from '@mui/material';
 import { IconComponentProps } from './types';
+import { standardTransitions } from '@/theme/constants';
 
 const GithubIcon: React.FC<IconComponentProps> = ({ style = {} }) => {
   const theme = useTheme();
@@ -8,7 +9,10 @@ const GithubIcon: React.FC<IconComponentProps> = ({ style = {} }) => {
     width: '1rem',
     height: '1rem',
   };
-  const pathStyle: CSSProperties = { fill: theme.palette.text.primary };
+  const pathStyle: CSSProperties = {
+    fill: theme.palette.text.primary,
+    transition: standardTransitions(theme),
+  };
   return (
     <svg
       id="Layer_1"

@@ -3,6 +3,7 @@ import ContactLinks from '@components/contactLinks/ContactLinks';
 import { Box, Container, Link, Typography, useTheme } from '@mui/material';
 import ContentBlock from '@components/layout/ContentBlock';
 import { addOpacityToColor } from '@utils/utils';
+import { standardTransitions } from '@/theme/constants';
 
 const Footer: React.FC = () => {
   const theme = useTheme();
@@ -14,6 +15,7 @@ const Footer: React.FC = () => {
         pb: 2,
         borderTop: '1px solid rgba(255, 255, 255, 0.12)',
         boxShadow: `0 -2px 6px 1px ${addOpacityToColor('#000000', 0.5)}`,
+        transition: standardTransitions(theme),
       }}
     >
       <Container>
@@ -23,7 +25,7 @@ const Footer: React.FC = () => {
             sx={{ flex: 1, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}
           >
             <Box sx={{ flex: 1, pr: 1 }}>
-              <Typography sx={{ mb: 0.5 }} variant="body1">
+              <Typography sx={{ mb: 0.5, transition: standardTransitions(theme) }} variant="body1">
                 All design & dev by Nick Barnard 2023
               </Typography>
               <Link href="https://github.com/barnardnicholas/portfolio-2023-02" target="blank">

@@ -7,6 +7,7 @@ import { useTheme } from '@mui/material';
 import { useAtom } from 'jotai';
 import { windowDimensionsAtom } from '@/atoms/atoms';
 import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
+import { standardTransitions } from '@/theme/constants';
 
 const defaultMargin = {
   top: 0,
@@ -27,6 +28,7 @@ export interface ItemProps {
 }
 
 const WavyLinesBG: React.FC<ItemProps> = ({ id, prefersReducedMotion }) => {
+  const theme = useTheme();
   const width = 10;
   const height = 10;
 
@@ -57,6 +59,7 @@ const WavyLinesBG: React.FC<ItemProps> = ({ id, prefersReducedMotion }) => {
         fill="none"
         stroke="#444444"
         strokeWidth={1}
+        style={{ transition: standardTransitions(theme) }}
       />
     </CustomPattern>
   );

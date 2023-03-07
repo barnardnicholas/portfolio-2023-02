@@ -9,6 +9,7 @@ import CustomCard from '@components/customCard/CustomCard';
 import { techStack } from '@pages/home/constants';
 import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
 import ContactLinks from '@components/contactLinks/ContactLinks';
+import { standardTransitions } from '@/theme/constants';
 
 const AnimatedBox = animated(Box);
 const AnimatedTypography = animated(Typography);
@@ -29,10 +30,14 @@ const CustomContainer: React.FC<CustomContainerProps> = ({ animationDisabled, ch
 };
 
 const SecondaryContent: React.FC = () => {
+  const theme = useTheme();
   const [, setCurrentTheme] = useAtom(themeAtom);
   return (
     <>
-      <Typography sx={{ textAlign: 'center' }} variant="body1">
+      <Typography
+        sx={{ textAlign: 'center', transition: standardTransitions(theme) }}
+        variant="body1"
+      >
         Full-stack Software Development
       </Typography>
       <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1 }}>
@@ -41,7 +46,7 @@ const SecondaryContent: React.FC = () => {
             key={`${label}-${i}`}
             label={label}
             clickable
-            sx={{ mb: 1, mr: i < techStack.length ? 1 : 0 }}
+            sx={{ mb: 1, mr: i < techStack.length ? 1 : 0, transition: standardTransitions(theme) }}
             onClick={() => console.log(`Click ${label}`)}
           />
         ))}
@@ -66,12 +71,9 @@ const HeroCard: React.FC<HeroCardProps> = ({
   const [{ x, y }] = useAtom(mouseXYAtom);
   const [{ w, h }] = useAtom(windowDimensionsAtom);
   const prefersReducedMotion = usePreferReducedMotion();
-  const {
-    breakpoints: {
-      values: { sm },
-    },
-  } = useTheme();
-  const effectDisabled = disabled || prefersReducedMotion || (disableOnMobile && w < sm);
+  const theme = useTheme();
+  const effectDisabled =
+    disabled || prefersReducedMotion || (disableOnMobile && w < theme.breakpoints.values.sm);
 
   const [tilterPosition, setTilterPosition] = useState({ aX: 0, aY: 0 });
   const [isHovering, setIsHovering] = useState<boolean>(false);
@@ -137,7 +139,10 @@ const HeroCard: React.FC<HeroCardProps> = ({
     return (
       <Box ref={ref}>
         <CustomContainer animationDisabled>
-          <Typography sx={{ mb: 0, textAlign: 'center' }} variant="h1">
+          <Typography
+            sx={{ mb: 0, textAlign: 'center', transition: standardTransitions(theme) }}
+            variant="h1"
+          >
             Nick Barnard
           </Typography>
           <SecondaryContent />
@@ -162,7 +167,12 @@ const HeroCard: React.FC<HeroCardProps> = ({
       <AnimatedBox className="mouse-tilter" style={{ ...tiltStyles }}>
         <CustomContainer>
           <AnimatedTypography
-            sx={{ mb: 0, textAlign: 'center', backgroundColor: 'transparent' }}
+            sx={{
+              mb: 0,
+              textAlign: 'center',
+              backgroundColor: 'transparent',
+              transition: standardTransitions(theme),
+            }}
             style={textStyles}
             variant="h1"
           >

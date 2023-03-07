@@ -6,6 +6,7 @@ import Example from '@components/background/patterns/WavyLines';
 import { animated, config, useSpring } from 'react-spring';
 import ConcentricAnimation from './concentricAnimation/ConcentricAnimation';
 import GradientOverlay from './GradientOverlay';
+import { standardTransitions } from '@/theme/constants';
 
 const mouseMovementPx = 4;
 const dimensionOffset = mouseMovementPx * 2;
@@ -21,15 +22,11 @@ const getOffset = (w: number, h: number, x: number, y: number, offsetPx: number)
 };
 
 const BackgroundContainer = () => {
-  const {
-    breakpoints: {
-      values: { sm },
-    },
-  } = useTheme();
+  const theme = useTheme();
 
   const [{ w, h }] = useAtom(windowDimensionsAtom);
   const [{ x, y }] = useAtom(mouseXYAtom);
-  const effectDisabled = w < sm;
+  const effectDisabled = w < theme.breakpoints.values.sm;
 
   const { oX, oY } = useMemo(() => getOffset(w, h, x, y, mouseMovementPx), [w, h, x, y]);
 
@@ -53,11 +50,12 @@ const BackgroundContainer = () => {
           bottom: 0,
           left: 0,
           right: 0,
-          zIndex: -1,
+          // zIndex: -1,
           overflow: 'hidden',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          transition: standardTransitions(theme),
         }}
       >
         {/* <ConcentricAnimation /> */}
