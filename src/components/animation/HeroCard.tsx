@@ -6,9 +6,8 @@ import { Box, Button, Chip, SxProps, Theme, Typography, useTheme } from '@mui/ma
 import { throttle } from 'lodash';
 import { getTilterPosition } from './constants';
 import CustomCard from '@components/customCard/CustomCard';
-import { contacts, techStack } from '@pages/home/constants';
+import { techStack } from '@pages/home/constants';
 import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
-import Image from '@components/image/Image';
 import ContactLinks from '@components/contactLinks/ContactLinks';
 
 const AnimatedBox = animated(Box);
