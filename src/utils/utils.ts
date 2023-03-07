@@ -101,3 +101,19 @@ export function throttle(callback: () => void, time: number): void {
     throttlePause = false;
   }, time);
 }
+
+/**
+ * Wrap a number around a min/max
+ * @param color Hex color to operate on
+ * @param opacity float (1 = fully visible)
+ */
+export function addOpacityToColor(color: string, opacity: number) {
+  if (opacity >= 1) return color;
+  const ah = parseInt(color.replace(/#/g, ''), 16);
+  const rr = ah >> 16;
+  const rg = (ah >> 8) & 0xff;
+  const rb = ah & 0xff;
+  const opacityValue = Math.floor(255 * opacity);
+  const op = '00'.concat(opacityValue.toString(16).toUpperCase()).slice(-2);
+  return `#${(((1 << 24) + (rr << 16) + (rg << 8) + rb) | 0).toString(16).slice(1)}${op}`;
+}
