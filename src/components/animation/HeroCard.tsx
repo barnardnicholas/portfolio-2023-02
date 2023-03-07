@@ -1,4 +1,4 @@
-import React, { MouseEvent, useEffect, useRef, useState } from 'react';
+import React, { MouseEvent, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { useAtom } from 'jotai';
 import { useSpring, config, animated } from 'react-spring';
 import { mouseXYAtom, windowDimensionsAtom } from '@/atoms/atoms';
@@ -6,11 +6,66 @@ import { Box, Chip, SxProps, Theme, Typography, useTheme } from '@mui/material';
 import { throttle } from 'lodash';
 import { getTilterPosition } from './constants';
 import CustomCard from '@components/customCard/CustomCard';
-import { techStack } from '@pages/home/constants';
+import { contacts, techStack } from '@pages/home/constants';
 import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
+import Image from '@components/image/Image';
 
 const AnimatedBox = animated(Box);
 const AnimatedTypography = animated(Typography);
+
+const CustomContainer: React.FC<CustomContainerProps> = ({ animationDisabled, children }) => {
+  const baseStyles: SxProps<Theme> = { pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 } };
+  const animStyles = animationDisabled
+    ? {}
+    : { perspective: '1000px', transformStyle: 'preserve-3d' };
+  return (
+    <CustomCard
+      sx={{ ...baseStyles, animStyles }}
+      onClick={(event: MouseEvent<HTMLDivElement>) => console.dir(event.nativeEvent.target)}
+    >
+      {children}
+    </CustomCard>
+  );
+};
+
+const SecondaryContent: React.FC = () => (
+  <>
+    <Typography sx={{ textAlign: 'center' }} variant="body1">
+      Full-stack Software Development
+    </Typography>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1 }}>
+      {techStack.map((label: string, i: number) => (
+        <Chip
+          key={`${label}-${i}`}
+          label={label}
+          clickable
+          sx={{ mb: 1, mr: i < techStack.length ? 1 : 0 }}
+          onClick={() => console.log(`Click ${label}`)}
+        />
+      ))}
+    </Box>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1 }}>
+      {contacts.map(({ name, icon, link }, i: number) => (
+        <Chip
+          key={`${name}-${i}`}
+          label={name}
+          clickable
+          sx={{ mb: 1, mr: i < contacts.length ? 1 : 0 }}
+          component="a"
+          href={link}
+          icon={
+            <img
+              style={{ width: '1rem', height: '1rem', marginLeft: '0.66rem', color: 'white' }}
+              src={icon}
+              alt={name}
+            />
+          }
+          target="blank"
+        />
+      ))}
+    </Box>
+  </>
+);
 
 const HeroCard: React.FC<HeroCardProps> = ({
   disableOnMobile = true,
@@ -94,28 +149,12 @@ const HeroCard: React.FC<HeroCardProps> = ({
   if (effectDisabled)
     return (
       <Box ref={ref}>
-        <CustomCard
-          sx={{ pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 } }}
-          onClick={(event: MouseEvent<HTMLDivElement>) => console.dir(event.nativeEvent.target)}
-        >
+        <CustomContainer animationDisabled>
           <Typography sx={{ mb: 0, textAlign: 'center' }} variant="h1">
             Nick Barnard
           </Typography>
-          <Typography sx={{ textAlign: 'center' }} variant="body1">
-            Full-stack Software Development
-          </Typography>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1 }}>
-            {techStack.map((label: string, i: number) => (
-              <Chip
-                key={`${label}-${i}`}
-                label={label}
-                clickable
-                sx={{ mb: 1, mr: i < techStack.length ? 1 : 0 }}
-                onClick={() => console.log(`Click ${label}`)}
-              />
-            ))}
-          </Box>
-        </CustomCard>
+          <SecondaryContent />
+        </CustomContainer>
       </Box>
     ); // Don't tilt if disabled
 
@@ -134,14 +173,7 @@ const HeroCard: React.FC<HeroCardProps> = ({
       ref={ref}
     >
       <AnimatedBox className="mouse-tilter" style={{ ...tiltStyles }}>
-        <CustomCard
-          sx={{
-            pt: { xs: 3, md: 6 },
-            pb: { xs: 3, md: 6 },
-            perspective: '1000px',
-            transformStyle: 'preserve-3d',
-          }}
-        >
+        <CustomContainer>
           <AnimatedTypography
             sx={{ mb: 0, textAlign: 'center', backgroundColor: 'transparent' }}
             style={textStyles}
@@ -149,21 +181,8 @@ const HeroCard: React.FC<HeroCardProps> = ({
           >
             Nick Barnard
           </AnimatedTypography>
-          <Typography sx={{ textAlign: 'center' }} variant="body1">
-            Full-stack Software Development
-          </Typography>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1 }}>
-            {techStack.map((label: string, i: number) => (
-              <Chip
-                key={`${label}-${i}`}
-                label={label}
-                clickable
-                sx={{ mb: 1, mr: i < techStack.length ? 1 : 0 }}
-                onClick={() => console.log(`Click ${label}`)}
-              />
-            ))}
-          </Box>
-        </CustomCard>
+          <SecondaryContent />
+        </CustomContainer>
       </AnimatedBox>
     </Box>
   );
@@ -176,6 +195,10 @@ interface HeroCardProps {
   disabled?: boolean;
   riseOnHover?: boolean;
   sx?: SxProps<Theme>;
+}
+
+interface CustomContainerProps extends PropsWithChildren {
+  animationDisabled?: boolean;
 }
 
 export default HeroCard;

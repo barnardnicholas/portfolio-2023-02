@@ -1,3 +1,9 @@
+import GithubIcon from '@assets/images/brand-logos/github-icon.svg';
+import EmailIcon from '@assets/images/icons/email.svg';
+import LinkedInIcon from '@assets/images/brand-logos/linkedin.svg';
+import TwitterIcon from '@assets/images/brand-logos/twitter.svg';
+import { ReactNode } from 'react';
+
 export const loremIpsum = [
   `Doc? Who the hell is John F. Kennedy? Oh, if Paul calls me tell him I'm working at the boutique late tonight. Yeah. Oh, pleased to meet you, Calvin Marty Klein. Do you mind if I sit here?`,
   `I'm gonna get that son-of-a-bitch. Mom, is that you? Good evening, I'm Doctor Emmett Brown. I'm standing on the parking lot of Twin Pines Mall. It's Saturday morning, October 26, 1985, 1:18 a.m. and this is temporal experiment number one. C'mon, Einy, hey hey boy, get in there, that a boy, in you go, get down, that's it. I over slept, look I need your help. I have to ask Lorraine out but I don't know how to do it. I have to ask Lorraine out but I don't know how to do it. Wait a minute, what are you doing, Doc?`,
@@ -5,3 +11,32 @@ export const loremIpsum = [
 ];
 
 export const techStack = ['React', 'Typescript', 'SCSS', 'Node'];
+
+export const contacts: Contact[] = [
+  {
+    name: 'Email',
+    icon: EmailIcon,
+    link: 'mailto:barnard.nicholas@gmail.com',
+  },
+  {
+    name: 'LinkedIn',
+    icon: LinkedInIcon,
+    link: 'https://www.linkedin.com/in/barnardnicholas',
+  },
+  {
+    name: 'Twitter',
+    icon: TwitterIcon,
+    link: 'https://twitter.com/nickbarnardinc',
+  },
+  {
+    name: 'Github',
+    icon: GithubIcon,
+    link: 'https://github.com/barnardnicholas',
+  },
+];
+
+export interface Contact {
+  name: string;
+  icon: string;
+  link: string;
+}
