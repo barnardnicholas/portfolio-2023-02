@@ -6,6 +6,7 @@ import useUpdateMousePosition from '@hooks/useUpdateMousePosition';
 import { useTheme } from '@mui/material';
 import { useAtom } from 'jotai';
 import { windowDimensionsAtom } from '@/atoms/atoms';
+import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
 
 const defaultMargin = {
   top: 0,
@@ -70,9 +71,7 @@ export default function Example({ width, height, margin = defaultMargin }: Patte
   const [{ w }] = useAtom(windowDimensionsAtom);
   useUpdateMousePosition(!!(w < sm));
   // use non-animated components if prefers-reduced-motion is set
-  const prefersReducedMotionQuery =
-    typeof window === 'undefined' ? false : window.matchMedia('(prefers-reduced-motion: reduce)');
-  const prefersReducedMotion = !prefersReducedMotionQuery || !!prefersReducedMotionQuery.matches;
+  const prefersReducedMotion = usePreferReducedMotion();
 
   return width >= 10 ? (
     <svg width={width} height={height} style={{ width: '100%', height: '100%' }}>
