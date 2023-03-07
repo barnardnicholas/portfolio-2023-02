@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
       sx={{
         backgroundColor: addOpacityToColor(theme.palette.background.paper, 0.66),
         pt: 2,
-        pb: 2,
+        pb: 6,
         borderTop: '1px solid rgba(255, 255, 255, 0.12)',
         boxShadow: `0 -2px 6px 1px ${addOpacityToColor('#000000', 0.5)}`,
         transition: standardTransitions(theme),
