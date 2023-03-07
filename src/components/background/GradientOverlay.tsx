@@ -4,7 +4,7 @@ import { addOpacityToColor } from '@utils/utils';
 
 function GradientOverlay() {
   const theme = useTheme();
-  const color = addOpacityToColor(theme.palette.background.default, 0.66);
+  const color = addOpacityToColor(theme.palette.background.default, 0.4);
   const outerColor = addOpacityToColor(theme.palette.background.default, 0.9);
   return (
     <Box
