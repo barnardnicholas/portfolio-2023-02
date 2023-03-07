@@ -1,19 +1,17 @@
 import React from 'react';
-import { Box, Card, Chip, Grid, Link, Stack, Typography } from '@mui/material';
+import { Box, Grid, Link, Typography } from '@mui/material';
 
-import { loremIpsum, techStack } from './constants';
-import MouseTiltContainer from '@components/animation/MouseTiltContainer';
 import ContentBlock from '@components/layout/ContentBlock';
 import CustomCard from '@components/customCard/CustomCard';
+import HeroCard from '@components/animation/HeroCard';
 
 function Home() {
   return (
     <>
-      <Stack sx={{ h: '66.6vh' }}></Stack>
-
       <Box sx={{ height: '66vh', display: 'grid', gridTemplateRows: '1fr 1fr', mb: '20vh' }}>
         <Box></Box>
         <Box
+          className="title-box"
           sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -21,30 +19,10 @@ function Home() {
             justifyContent: 'center',
           }}
         >
-          <MouseTiltContainer>
-            <CustomCard sx={{ pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 }, minWidth: '100%' }}>
-              <Typography sx={{ mb: 0, textAlign: 'center' }} variant="h1">
-                Nick Barnard
-              </Typography>
-              <Typography sx={{ textAlign: 'center' }} variant="body1">
-                Full-stack Software Development
-              </Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1 }}>
-                {techStack.map((label: string, i: number) => (
-                  <Chip
-                    key={`${label}-${i}`}
-                    label={label}
-                    clickable
-                    sx={{ mb: 1, mr: i < techStack.length ? 1 : 0 }}
-                    onClick={() => console.log(`Click ${label}`)}
-                  />
-                ))}
-              </Box>
-            </CustomCard>
-          </MouseTiltContainer>
+          <HeroCard />
         </Box>
       </Box>
-      <ContentBlock position="center">
+      <ContentBlock>
         <CustomCard
           sx={{
             alignItems: 'flex-start',
@@ -94,7 +72,7 @@ function Home() {
           </Typography>
         </CustomCard>
       </ContentBlock>
-      <ContentBlock position="left">
+      <ContentBlock>
         <CustomCard
           sx={{
             alignItems: 'flex-start',
@@ -165,7 +143,7 @@ function Home() {
           </Grid>
         </CustomCard>
       </ContentBlock>
-      <ContentBlock position="center">
+      <ContentBlock>
         <CustomCard
           sx={{
             alignItems: 'flex-start',
@@ -214,7 +192,7 @@ function Home() {
           </Typography>
         </CustomCard>
       </ContentBlock>
-      <ContentBlock position="right">
+      <ContentBlock>
         <CustomCard
           sx={{
             alignItems: 'flex-start',
