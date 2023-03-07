@@ -2,7 +2,7 @@ import { Box, SxProps, Theme } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { contentBlockStyles } from './constants';
 
-const ContentBlock: React.FC<ContentBlockProps> = ({ sx = {}, position, children }) => {
+const ContentBlock: React.FC<ContentBlockProps> = ({ sx = {}, position = 'center', children }) => {
   return (
     <Box
       className={`gridbox content-${position}`}
@@ -30,7 +30,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ sx = {}, position, children
 };
 
 interface ContentBlockProps extends PropsWithChildren {
-  position: 'left' | 'right' | 'center';
+  position?: 'left' | 'right' | 'center';
   sx?: SxProps<Theme>;
 }
 
