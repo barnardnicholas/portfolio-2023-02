@@ -1,7 +1,11 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
+import { addOpacityToColor } from '@utils/utils';
 
 function GradientOverlay() {
+  const theme = useTheme();
+  const color = addOpacityToColor(theme.palette.background.default, 0.66);
+  const outerColor = addOpacityToColor(theme.palette.background.default, 0.9);
   return (
     <Box
       className="gradient-overlay"
@@ -13,12 +17,13 @@ function GradientOverlay() {
         bottom: 0,
         background: `radial-gradient(
     circle,
-    #27273088 0%,
-    #27273088 66%,
-    #272730ee 100%
+    ${color} 0%,
+    ${outerColor} 66%,
+    ${outerColor} 100%
   )`,
         pointerEvents: 'none',
         zIndex: 5,
+        // opacity: 0,
       }}
     />
   );

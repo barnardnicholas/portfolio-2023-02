@@ -1,4 +1,6 @@
+import { ThemeKey } from '@/theme/types';
 import { atom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 
 export const windowWidthAtom = atom<number>(window.innerWidth);
 export const windowHeightAtom = atom<number>(window.innerHeight);
@@ -13,3 +15,5 @@ export const mouseXYAtom = atom((get) => ({
   x: get(mouseXAtom),
   y: get(mouseYAtom),
 }));
+
+export const themeAtom = atomWithStorage<ThemeKey>('theme', 'dark');

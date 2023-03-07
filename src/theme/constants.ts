@@ -1,3 +1,5 @@
+import { addOpacityToColor } from '@utils/utils';
+
 export const muiToolbarHeights = {
   xs: 48,
   sm: 56,
@@ -32,4 +34,4 @@ export const bodyText = {
   letterSpacing: '-0.05em',
 };
 
-export const boxShadow = '0 2px 6px 1px #222222';
+export const boxShadow = `0 2px 6px 1px ${addOpacityToColor('#000000', 0.4)}`;
