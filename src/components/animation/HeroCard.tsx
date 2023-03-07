@@ -1,14 +1,15 @@
 import React, { MouseEvent, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { useAtom } from 'jotai';
 import { useSpring, config, animated } from 'react-spring';
-import { mouseXYAtom, windowDimensionsAtom } from '@/atoms/atoms';
-import { Box, Chip, SxProps, Theme, Typography, useTheme } from '@mui/material';
+import { mouseXYAtom, themeAtom, windowDimensionsAtom } from '@/atoms/atoms';
+import { Box, Button, Chip, SxProps, Theme, Typography, useTheme } from '@mui/material';
 import { throttle } from 'lodash';
 import { getTilterPosition } from './constants';
 import CustomCard from '@components/customCard/CustomCard';
 import { contacts, techStack } from '@pages/home/constants';
 import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
 import Image from '@components/image/Image';
+import ContactLinks from '@components/contactLinks/ContactLinks';
 
 const AnimatedBox = animated(Box);
 const AnimatedTypography = animated(Typography);
@@ -28,44 +29,31 @@ const CustomContainer: React.FC<CustomContainerProps> = ({ animationDisabled, ch
   );
 };
 
-const SecondaryContent: React.FC = () => (
-  <>
-    <Typography sx={{ textAlign: 'center' }} variant="body1">
-      Full-stack Software Development
-    </Typography>
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1 }}>
-      {techStack.map((label: string, i: number) => (
-        <Chip
-          key={`${label}-${i}`}
-          label={label}
-          clickable
-          sx={{ mb: 1, mr: i < techStack.length ? 1 : 0 }}
-          onClick={() => console.log(`Click ${label}`)}
-        />
-      ))}
-    </Box>
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1 }}>
-      {contacts.map(({ name, icon, link }, i: number) => (
-        <Chip
-          key={`${name}-${i}`}
-          label={name}
-          clickable
-          sx={{ mb: 1, mr: i < contacts.length ? 1 : 0 }}
-          component="a"
-          href={link}
-          icon={
-            <img
-              style={{ width: '1rem', height: '1rem', marginLeft: '0.66rem', color: 'white' }}
-              src={icon}
-              alt={name}
-            />
-          }
-          target="blank"
-        />
-      ))}
-    </Box>
-  </>
-);
+const SecondaryContent: React.FC = () => {
+  const [, setCurrentTheme] = useAtom(themeAtom);
+  return (
+    <>
+      <Typography sx={{ textAlign: 'center' }} variant="body1">
+        Full-stack Software Development
+      </Typography>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1 }}>
+        {techStack.map((label: string, i: number) => (
+          <Chip
+            key={`${label}-${i}`}
+            label={label}
+            clickable
+            sx={{ mb: 1, mr: i < techStack.length ? 1 : 0 }}
+            onClick={() => console.log(`Click ${label}`)}
+          />
+        ))}
+      </Box>
+      <ContactLinks />
+      <Button onClick={() => setCurrentTheme((theme) => (theme === 'dark' ? 'light' : 'dark'))}>
+        Set Theme
+      </Button>
+    </>
+  );
+};
 
 const HeroCard: React.FC<HeroCardProps> = ({
   disableOnMobile = true,
