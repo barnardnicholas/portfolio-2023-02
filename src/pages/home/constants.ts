@@ -1,35 +1,40 @@
-import GithubIcon from '@assets/images/brand-logos/github-icon.svg';
-import EmailIcon from '@assets/images/icons/email.svg';
-import LinkedInIcon from '@assets/images/brand-logos/linkedin.svg';
-import TwitterIcon from '@assets/images/brand-logos/twitter.svg';
+import EmailIcon from '@components/iconComponents/EmailIcon';
+import GithubIcon from '@components/iconComponents/GithubIcon';
+import LinkedInIcon from '@components/iconComponents/LinkedInIcon';
+import TwitterIcon from '@components/iconComponents/TwitterIcon';
 
 export const techStack = ['React', 'Typescript', 'SCSS', 'Node'];
 
 export const contacts: Contact[] = [
   {
+    id: 'email',
     name: 'Email',
-    icon: EmailIcon,
+    IconComponent: EmailIcon,
     link: 'mailto:barnard.nicholas@gmail.com',
   },
   {
+    id: 'linkedin',
     name: 'LinkedIn',
-    icon: LinkedInIcon,
+    IconComponent: LinkedInIcon,
     link: 'https://www.linkedin.com/in/barnardnicholas',
   },
   {
+    id: 'twitter',
     name: 'Twitter',
-    icon: TwitterIcon,
+    IconComponent: TwitterIcon,
     link: 'https://twitter.com/nickbarnardinc',
   },
   {
+    id: 'github',
     name: 'Github',
-    icon: GithubIcon,
+    IconComponent: GithubIcon,
     link: 'https://github.com/barnardnicholas',
   },
 ];
 
 export interface Contact {
+  id: string;
   name: string;
-  icon: string;
+  IconComponent: React.FC;
   link: string;
 }

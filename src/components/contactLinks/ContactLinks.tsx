@@ -5,7 +5,7 @@ import React, { PropsWithChildren } from 'react';
 const ContactLinks: React.FC<ContactLinksProps> = ({ sx = {} }) => {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1, ...sx }}>
-      {contacts.map(({ name, icon, link }, i: number) => (
+      {contacts.map(({ name, IconComponent, link }, i: number) => (
         <Chip
           key={`${name}-${i}`}
           // label={name}
@@ -15,19 +15,13 @@ const ContactLinks: React.FC<ContactLinksProps> = ({ sx = {} }) => {
             minWidth: '1.9rem',
             mr: i < contacts.length - 1 ? 1 : 0,
             '.MuiChip-label': {
-              pr: '0.4rem',
-              pl: '0.4rem',
+              pr: '0rem',
+              pl: '0rem',
             },
           }}
           component="a"
           href={link}
-          icon={
-            <img
-              style={{ width: '1rem', height: '1rem', marginLeft: '0.4rem', fill: 'white' }}
-              src={icon}
-              alt={name}
-            />
-          }
+          icon={<IconComponent />}
           target="blank"
         />
       ))}
