@@ -116,6 +116,9 @@ const components: Components<Omit<Theme, 'components'>> = {
         boxShadow,
       },
     },
+    defaultProps: {
+      color: 'inherit',
+    },
   },
   MuiSelect: {
     styleOverrides: {
@@ -134,6 +137,11 @@ const components: Components<Omit<Theme, 'components'>> = {
   MuiButtonBase: {
     defaultProps: {
       disableRipple: true,
+    },
+  },
+  MuiLink: {
+    defaultProps: {
+      color: 'inherit',
     },
   },
 };
