@@ -2,24 +2,12 @@ import React, { MouseEvent, PropsWithChildren, useEffect, useRef, useState } fro
 import { useAtom } from 'jotai';
 import { useSpring, config, animated } from 'react-spring';
 import { mouseXYAtom, windowDimensionsAtom } from '@/atoms/atoms';
-import { Box, useTheme } from '@mui/material';
+import { Box, SxProps, Theme, useTheme } from '@mui/material';
 import { throttle } from 'lodash';
+import { getTilterPosition } from './constants';
+import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
 
-const getTilterPosition = (
-  w: number,
-  h: number,
-  mX: number,
-  mY: number,
-  cX: number,
-  cY: number,
-  maxTilt: number,
-): { aX: number; aY: number } => {
-  const dY = (mX - cX) / (w / 2);
-  const dX = (mY - cY) / (h / 2);
-  const aX = dX * maxTilt * -1;
-  const aY = dY * maxTilt;
-  return { aX, aY };
-};
+const AnimatedBox = animated(Box);
 
 const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
   disableOnMobile = true,
@@ -27,17 +15,19 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
   maxTiltDeg = 3,
   disabled = false,
   riseOnHover = true,
+  sx = {},
   children,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [{ x, y }] = useAtom(mouseXYAtom);
   const [{ w, h }] = useAtom(windowDimensionsAtom);
+  const prefersReducedMotion = usePreferReducedMotion();
   const {
     breakpoints: {
       values: { sm },
     },
   } = useTheme();
-  const effectDisabled = disabled || (disableOnMobile && w < sm);
+  const effectDisabled = disabled || prefersReducedMotion || (disableOnMobile && w < sm);
 
   const [tilterPosition, setTilterPosition] = useState({ aX: 0, aY: 0 });
   const [isHovering, setIsHovering] = useState<boolean>(false);
@@ -48,21 +38,20 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
   }, [w, h, x, y, maxTiltDeg, onlyOnHover, effectDisabled]); // Update based on global mouse position if onlyOnHover is false
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (!effectDisabled && ref.current) {
-      try {
-        const { left, top, width, height } = ref.current.getBoundingClientRect();
-        const eX = e.clientX - left;
-        const eY = e.clientY - top;
-        const throttled = throttle(
-          () =>
-            setTilterPosition(
-              getTilterPosition(width, height, eX, eY, width / 2, height / 2, maxTiltDeg),
-            ),
-          100,
-        );
-        throttled();
-      } catch (e) {}
-    }
+    const throttled = throttle(() => {
+      if (!effectDisabled && ref.current) {
+        try {
+          const { left, top, width, height } = ref.current.getBoundingClientRect();
+          const eX = e.clientX - left;
+          const eY = e.clientY - top;
+
+          setTilterPosition(
+            getTilterPosition(width, height, eX, eY, width / 2, height / 2, maxTiltDeg),
+          );
+        } catch (e) {}
+      }
+    }, 100);
+    throttled();
   };
 
   const handleMouseEnter = () => {
@@ -97,15 +86,16 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
       sx={{
         perspective: '1000px',
         transformStyle: 'preserve-3d',
+        ...sx,
       }}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={ref}
     >
-      <animated.div className="mouse-tilter" style={{ ...tiltStyles }}>
+      <AnimatedBox className="mouse-tilter" style={{ ...tiltStyles }}>
         {children}
-      </animated.div>
+      </AnimatedBox>
     </Box>
   );
 };
@@ -116,6 +106,7 @@ interface MouseTiltContainerProps extends PropsWithChildren {
   disableOnMobile?: boolean;
   disabled?: boolean;
   riseOnHover?: boolean;
+  sx?: SxProps<Theme>;
 }
 
 export default MouseTiltContainer;
