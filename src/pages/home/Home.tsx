@@ -5,6 +5,7 @@ import HeroCard from '@components/animation/HeroCard';
 import TechStack from './TechStack';
 import Summary from './Summary';
 import AgencyWork from './AgencyWork';
+import Portfolio from './Portfolio';
 
 function Home() {
   return (
@@ -26,6 +27,7 @@ function Home() {
       <Summary />
       <TechStack />
       <AgencyWork />
+      <Portfolio />
     </>
   );
 }

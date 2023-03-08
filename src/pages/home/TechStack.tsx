@@ -2,16 +2,18 @@ import React from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import ContentBlock from '@components/layout/ContentBlock';
 import { Grid, Typography } from '@mui/material';
+import MouseTiltContainer from '@components/animation/MouseTiltContainer';
 
 function TechStack() {
   return (
-    <ContentBlock>
+    <MouseTiltContainer>
       <CustomCard
         sx={{
           alignItems: 'flex-start',
           pt: { xs: 3, md: 6 },
           pb: { xs: 3, md: 6 },
-          minWidth: '100%',
+          mb: 6,
+          // minWidth: '100%',
         }}
       >
         <Typography variant="h2">Tech Stack</Typography>
@@ -77,7 +79,7 @@ function TechStack() {
           </Grid>
         </Grid>
       </CustomCard>
-    </ContentBlock>
+    </MouseTiltContainer>
   );
 }
 
