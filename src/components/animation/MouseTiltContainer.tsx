@@ -93,7 +93,11 @@ const MouseTiltContainer: React.FC<MouseTiltContainerProps> = ({
       onMouseLeave={handleMouseLeave}
       ref={ref}
     >
-      <AnimatedBox className="mouse-tilter" style={{ ...tiltStyles }}>
+      <AnimatedBox
+        className="mouse-tilter"
+        sx={{ height: 'max-content(100%)' }}
+        style={{ ...tiltStyles }}
+      >
         {children}
       </AnimatedBox>
     </Box>
