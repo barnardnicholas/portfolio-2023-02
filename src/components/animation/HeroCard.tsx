@@ -1,8 +1,8 @@
 import React, { MouseEvent, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { useAtom } from 'jotai';
 import { useSpring, config, animated } from 'react-spring';
-import { mouseXYAtom, themeAtom, windowDimensionsAtom } from '@/atoms/atoms';
-import { Box, Button, Chip, SxProps, Theme, Typography, useTheme } from '@mui/material';
+import { mouseXYAtom, windowDimensionsAtom } from '@/atoms/atoms';
+import { Box, Chip, SxProps, Theme, Typography, useTheme } from '@mui/material';
 import { throttle } from 'lodash';
 import { getTilterPosition } from './constants';
 import CustomCard from '@components/customCard/CustomCard';
@@ -31,7 +31,6 @@ const CustomContainer: React.FC<CustomContainerProps> = ({ animationDisabled, ch
 
 const SecondaryContent: React.FC = () => {
   const theme = useTheme();
-  const [, setCurrentTheme] = useAtom(themeAtom);
   return (
     <>
       <Typography
@@ -52,9 +51,6 @@ const SecondaryContent: React.FC = () => {
         ))}
       </Box>
       <ContactLinks />
-      <Button onClick={() => setCurrentTheme((theme) => (theme === 'dark' ? 'light' : 'dark'))}>
-        Set Theme
-      </Button>
     </>
   );
 };

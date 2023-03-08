@@ -6,6 +6,7 @@ import { Container, useTheme } from '@mui/material';
 import Footer from '@components/footer/Footer';
 import { standardTransitions } from './theme/constants';
 import SpeedDial from '@components/speedDial/SpeedDial';
+import ActionButton from '@components/actionButton/ActionButton';
 
 function App() {
   useUpdateWindowDimensions();
@@ -24,6 +25,7 @@ function App() {
       </Container>
       <Footer />
       {/* <SpeedDial /> */}
+      <ActionButton />
     </div>
   );
 }
