@@ -23,7 +23,7 @@ function App() {
         <Home />
       </Container>
       <Footer />
-      <SpeedDial />
+      {/* <SpeedDial /> */}
     </div>
   );
 }
