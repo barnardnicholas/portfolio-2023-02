@@ -1,26 +1,27 @@
 import React from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Grid, Link, Typography } from '@mui/material';
-import MouseTiltContainer from '@components/animation/MouseTiltContainer';
+// import MouseTiltContainer from '@components/animation/MouseTiltContainer';
 
 function AgencyWork() {
   return (
-    <MouseTiltContainer>
-      <CustomCard
-        sx={{
-          alignItems: 'flex-start',
-          pt: { xs: 3, md: 6 },
-          pb: { xs: 3, md: 6 },
-          mb: 6,
-          minWidth: '100%',
-        }}
-      >
-        <Typography variant="h2">Agency Work: 2020-Present</Typography>
-        <Typography variant="body1" sx={{ mb: 5 }}>
-          A few examples of client work I’ve been a part of delivering recently:
-        </Typography>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={4}>
+    <CustomCard
+      sx={{
+        alignItems: 'flex-start',
+        pt: { xs: 3, md: 6 },
+        pb: { xs: 3, md: 6 },
+        mb: 6,
+        minWidth: '100%',
+      }}
+    >
+      <Typography variant="h2">Agency Work: 2020-Present</Typography>
+      <Typography variant="body1" sx={{ mb: 5 }}>
+        A few examples of client work I’ve been a part of delivering recently:
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={4}>
+          {/* <MouseTiltContainer> */}
+          <CustomCard variant="elevation" riseOnHover>
             <Typography variant="h3">DECATHLON LEADER (SILVERCHIP/CTI)</Typography>
             <Typography variant="body1" sx={{ mb: 3 }}>
               Mobile-first web app - React JS/TS, Redux, Express/Knex. Internal peer-reviewing tool
@@ -28,8 +29,12 @@ function AgencyWork() {
               visualisation. Using Decathlon’s own OAuth system. API built to client’s
               specifications using Node & ExpressTS with Knex & PSQL.
             </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          </CustomCard>
+          {/* </MouseTiltContainer> */}
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          {/* <MouseTiltContainer> */}
+          <CustomCard variant="elevation" riseOnHover>
             <Typography variant="h3">BOLSTER SYSTEMS (SILVERCHIP/CTI)</Typography>
             <Typography variant="body1" sx={{ mb: 3 }}>
               Web & Mobile app - React JS/TS, React Native, Redux. Large, multi-national fire safety
@@ -44,8 +49,12 @@ function AgencyWork() {
                 Web app
               </Link>
             </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          </CustomCard>
+          {/* </MouseTiltContainer> */}
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          {/* <MouseTiltContainer> */}
+          <CustomCard variant="elevation" riseOnHover>
             <Typography variant="h3">SUITS ME BANKING (SILVERCHIP/CTI)</Typography>
             <Typography variant="body1">
               Web & Mobile app - React JS/TS, React Native. Suits Me offer banking services to
@@ -59,10 +68,11 @@ function AgencyWork() {
                 Web app
               </Link>
             </Typography>
-          </Grid>
+          </CustomCard>
+          {/* </MouseTiltContainer> */}
         </Grid>
-      </CustomCard>
-    </MouseTiltContainer>
+      </Grid>
+    </CustomCard>
   );
 }
 

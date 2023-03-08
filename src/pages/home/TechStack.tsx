@@ -1,24 +1,22 @@
 import React from 'react';
 import CustomCard from '@components/customCard/CustomCard';
-import ContentBlock from '@components/layout/ContentBlock';
 import { Grid, Typography } from '@mui/material';
-import MouseTiltContainer from '@components/animation/MouseTiltContainer';
 
 function TechStack() {
   return (
-    <MouseTiltContainer>
-      <CustomCard
-        sx={{
-          alignItems: 'flex-start',
-          pt: { xs: 3, md: 6 },
-          pb: { xs: 3, md: 6 },
-          mb: 6,
-          // minWidth: '100%',
-        }}
-      >
-        <Typography variant="h2">Tech Stack</Typography>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={4}>
+    <CustomCard
+      sx={{
+        alignItems: 'flex-start',
+        pt: { xs: 3, md: 6 },
+        pb: { xs: 3, md: 6 },
+        mb: 6,
+        // minWidth: '100%',
+      }}
+    >
+      <Typography variant="h2">Tech Stack</Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={4}>
+          <CustomCard variant="elevation" sx={{ alignItems: 'flex-start' }} riseOnHover>
             <Typography variant="body1" sx={{ mb: 0 }}>
               <strong>Languages:</strong>
               <br />
@@ -32,8 +30,10 @@ function TechStack() {
               <br />
               NodeJS
             </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          </CustomCard>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <CustomCard variant="elevation" sx={{ alignItems: 'flex-start' }} riseOnHover>
             <Typography variant="body1" sx={{ mb: 0 }}>
               <strong>Speciality:</strong>
               <br />
@@ -57,8 +57,10 @@ function TechStack() {
               <br />
               Git
             </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          </CustomCard>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <CustomCard variant="elevation" sx={{ alignItems: 'flex-start' }} riseOnHover>
             <Typography variant="body1" sx={{ mb: 0 }}>
               <strong>Comfortable:</strong>
               <br />
@@ -76,10 +78,10 @@ function TechStack() {
               <br />
               Slack/Teams
             </Typography>
-          </Grid>
+          </CustomCard>
         </Grid>
-      </CustomCard>
-    </MouseTiltContainer>
+      </Grid>
+    </CustomCard>
   );
 }
 
