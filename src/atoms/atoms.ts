@@ -16,4 +16,7 @@ export const mouseXYAtom = atom((get) => ({
   y: get(mouseYAtom),
 }));
 
-export const themeAtom = atomWithStorage<ThemeKey>('theme', 'dark');
+const prefersDarkMode =
+  !!window.matchMedia && !!window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+export const themeAtom = atomWithStorage<ThemeKey>('theme', prefersDarkMode ? 'dark' : 'light');
