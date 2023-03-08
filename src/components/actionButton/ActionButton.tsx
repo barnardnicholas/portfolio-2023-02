@@ -9,6 +9,7 @@ function ActionButton() {
   const theme = useTheme();
   const [currentTheme, setCurrentTheme] = useAtom(themeAtom);
   const transition = standardTransitions(theme);
+  const isMobile = window.innerWidth <= theme.breakpoints.values.sm;
 
   const iconStyles: CSSProperties = {
     fontSize: '1.5rem',
@@ -31,7 +32,7 @@ function ActionButton() {
         justifyContent: 'center',
         transition,
         '&:hover': {
-          backgroundColor: theme.palette.text.secondary,
+          backgroundColor: !isMobile ? theme.palette.text.secondary : theme.palette.text.primary,
         },
       }}
       onClick={() => setCurrentTheme((theme: ThemeKey) => (theme === 'dark' ? 'light' : 'dark'))}
