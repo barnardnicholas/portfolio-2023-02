@@ -1,7 +1,7 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material';
 import { useAtom } from 'jotai';
-import { clickedRectAtom, windowDimensionsAtom } from '@/atoms/atoms';
+import { clickedRectAtom, currentModalAtom, windowDimensionsAtom } from '@/atoms/atoms';
 import CustomCard from '@components/customCard/CustomCard';
 import { Rect } from '@/types/shared';
 import { modalAnimTimeMs, modalMarginHorizontal, modalMarginVertical } from '@/constants/constants';
@@ -39,20 +39,20 @@ const CardAnimationIn = () => {
         transition,
         pointerEvents: 'none',
         position: 'fixed',
-        // border: '2px solid green',
         top: coords?.top || 0,
         left: coords?.left || 0,
         height: coords?.height || 0,
         width: coords?.width || 0,
         ...coordState,
       }}
-    ></CustomCard>
+    />
   );
 };
 
 function CoordTracker() {
   const [coords] = useAtom(clickedRectAtom);
-  return <>{coords && <CardAnimationIn />}</>;
+  const [currentModal] = useAtom(currentModalAtom);
+  return <>{coords && !currentModal && <CardAnimationIn />}</>;
 }
 
 export default CoordTracker;
