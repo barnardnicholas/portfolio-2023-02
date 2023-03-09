@@ -11,15 +11,16 @@ function FullScreenModal() {
   const theme = useTheme();
   const [{ w, h }] = useAtom(windowDimensionsAtom);
   const [, setCurrentModal] = useAtom(currentModalAtom);
+  const isMobile = w < theme.breakpoints.values.sm;
   return (
     <>
       <CustomCard
         sx={{
           position: 'fixed',
-          top: modalMarginVertical,
-          left: modalMarginHorizontal,
-          width: w - modalMarginHorizontal * 2,
-          height: h - modalMarginVertical * 2,
+          top: isMobile ? modalMarginVertical / 2 : modalMarginVertical,
+          left: isMobile ? modalMarginHorizontal / 2 : modalMarginHorizontal,
+          width: w - (isMobile ? modalMarginHorizontal : modalMarginHorizontal * 2),
+          height: h - (isMobile ? modalMarginVertical : modalMarginVertical * 2),
           backgroundColor: addOpacityToColor(theme.palette.background.paper, 0.75),
         }}
       >

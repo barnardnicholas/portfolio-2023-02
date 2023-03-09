@@ -11,6 +11,7 @@ const CardAnimationIn = () => {
   const [coords] = useAtom(clickedRectAtom);
   const [{ w, h }] = useAtom(windowDimensionsAtom);
   const [coordState, setCoordState] = useState<Rect | null>(coords);
+  const isMobile = w < theme.breakpoints.values.sm;
 
   const transition = `${theme.transitions.create(['top', 'left', 'width', 'height'], {
     duration: `${modalAnimTimeMs}ms`,
@@ -23,15 +24,15 @@ const CardAnimationIn = () => {
         () =>
           setCoordState({
             ...coords,
-            top: modalMarginVertical,
-            left: modalMarginHorizontal,
-            width: w - modalMarginHorizontal * 2,
-            height: h - modalMarginVertical * 2,
+            top: isMobile ? modalMarginVertical / 2 : modalMarginVertical,
+            left: isMobile ? modalMarginHorizontal / 2 : modalMarginHorizontal,
+            width: w - (isMobile ? modalMarginHorizontal : modalMarginHorizontal * 2),
+            height: h - (isMobile ? modalMarginVertical : modalMarginVertical * 2),
           }),
         10,
       );
     }
-  }, [coords, w, h]);
+  }, [isMobile, coords, w, h]);
 
   return (
     <CustomCard
