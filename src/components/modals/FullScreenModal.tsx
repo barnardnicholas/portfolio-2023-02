@@ -3,8 +3,9 @@ import CustomCard from '@components/customCard/CustomCard';
 import { modalMarginHorizontal, modalMarginVertical } from '@/constants/constants';
 import { useAtom } from 'jotai';
 import { currentModalAtom, windowDimensionsAtom } from '@/atoms/atoms';
-import { Button, useTheme } from '@mui/material';
+import { IconButton, useTheme } from '@mui/material';
 import { addOpacityToColor } from '@utils/utils';
+import CloseIcon from '@mui/icons-material/Close';
 
 function FullScreenModal() {
   const theme = useTheme();
@@ -22,7 +23,12 @@ function FullScreenModal() {
           backgroundColor: addOpacityToColor(theme.palette.background.paper, 0.75),
         }}
       >
-        <Button onClick={() => setCurrentModal(null)}>Close</Button>
+        <IconButton
+          sx={{ position: 'fixed', top: theme.spacing(2), right: theme.spacing(2) }}
+          onClick={() => setCurrentModal(null)}
+        >
+          <CloseIcon />
+        </IconButton>
       </CustomCard>
     </>
   );
