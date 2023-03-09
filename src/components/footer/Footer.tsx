@@ -1,7 +1,6 @@
 import React from 'react';
 import ContactLinks from '@components/contactLinks/ContactLinks';
 import { Box, Container, Link, Typography, useTheme } from '@mui/material';
-import ContentBlock from '@components/layout/ContentBlock';
 import { addOpacityToColor } from '@utils/utils';
 import { standardTransitions } from '@/theme/constants';
 
@@ -19,22 +18,20 @@ const Footer: React.FC = () => {
       }}
     >
       <Container>
-        <ContentBlock sx={{ mb: 0 }}>
-          <Box
-            className="con"
-            sx={{ flex: 1, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}
-          >
-            <Box sx={{ flex: 1, pr: 1 }}>
-              <Typography sx={{ mb: 0.5, transition: standardTransitions(theme) }} variant="body1">
-                All design & dev by Nick Barnard 2023
-              </Typography>
-              <Link href="https://github.com/barnardnicholas/portfolio-2023-02" target="blank">
-                Check my source code
-              </Link>
-            </Box>
-            <ContactLinks />
+        <Box
+          className="con"
+          sx={{ flex: 1, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}
+        >
+          <Box sx={{ flex: 1, pr: 1 }}>
+            <Typography sx={{ mb: 0.5, transition: standardTransitions(theme) }} variant="body1">
+              All design & dev by Nick Barnard 2023
+            </Typography>
+            <Link href="https://github.com/barnardnicholas/portfolio-2023-02" target="blank">
+              Check my source code
+            </Link>
           </Box>
-        </ContentBlock>
+          <ContactLinks />
+        </Box>
       </Container>
     </Box>
   );
