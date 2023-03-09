@@ -1,10 +1,12 @@
 import React from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Grid, Link, Typography } from '@mui/material';
+// import useClickedRectTracker from '@hooks/useClickedRectTracker';
 
 function Portfolio() {
   return (
     <CustomCard
+      id="portfolio"
       sx={{
         alignItems: 'flex-start',
         pt: { xs: 3, md: 6 },
@@ -12,6 +14,7 @@ function Portfolio() {
         mb: 6,
         minWidth: '100%',
       }}
+      // coordClickHandler={useClickedRectTracker()}
     >
       <Typography variant="h2" sx={{ mb: 3 }}>
         PORTFOLIO & OTHER PROJECTS

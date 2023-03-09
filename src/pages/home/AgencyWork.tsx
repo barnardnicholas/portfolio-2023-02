@@ -1,11 +1,12 @@
 import React from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Grid, Link, Typography } from '@mui/material';
-// import MouseTiltContainer from '@components/animation/MouseTiltContainer';
+// import useClickedRectTracker from '@hooks/useClickedRectTracker';
 
 function AgencyWork() {
   return (
     <CustomCard
+      id="agency-work"
       sx={{
         alignItems: 'flex-start',
         pt: { xs: 3, md: 6 },
@@ -13,6 +14,7 @@ function AgencyWork() {
         mb: 6,
         minWidth: '100%',
       }}
+      // coordClickHandler={useClickedRectTracker()}
     >
       <Typography variant="h2">Agency Work: 2020-Present</Typography>
       <Typography variant="body1" sx={{ mb: 5 }}>
@@ -20,7 +22,6 @@ function AgencyWork() {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
-          {/* <MouseTiltContainer> */}
           <CustomCard variant="elevation" riseOnHover>
             <Typography variant="h3">DECATHLON LEADER (SILVERCHIP/CTI)</Typography>
             <Typography variant="body1" sx={{ mb: 3 }}>
@@ -30,10 +31,8 @@ function AgencyWork() {
               specifications using Node & ExpressTS with Knex & PSQL.
             </Typography>
           </CustomCard>
-          {/* </MouseTiltContainer> */}
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          {/* <MouseTiltContainer> */}
           <CustomCard variant="elevation" riseOnHover>
             <Typography variant="h3">BOLSTER SYSTEMS (SILVERCHIP/CTI)</Typography>
             <Typography variant="body1" sx={{ mb: 3 }}>
@@ -50,10 +49,8 @@ function AgencyWork() {
               </Link>
             </Typography>
           </CustomCard>
-          {/* </MouseTiltContainer> */}
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          {/* <MouseTiltContainer> */}
           <CustomCard variant="elevation" riseOnHover>
             <Typography variant="h3">SUITS ME BANKING (SILVERCHIP/CTI)</Typography>
             <Typography variant="body1">
@@ -69,7 +66,6 @@ function AgencyWork() {
               </Link>
             </Typography>
           </CustomCard>
-          {/* </MouseTiltContainer> */}
         </Grid>
       </Grid>
     </CustomCard>

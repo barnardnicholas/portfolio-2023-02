@@ -1,10 +1,12 @@
 import React from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Grid, Typography } from '@mui/material';
+// import useClickedRectTracker from '@hooks/useClickedRectTRacker';
 
 function TechStack() {
   return (
     <CustomCard
+      id="tech-stack"
       sx={{
         alignItems: 'flex-start',
         pt: { xs: 3, md: 6 },
@@ -12,6 +14,7 @@ function TechStack() {
         mb: 6,
         // minWidth: '100%',
       }}
+      // coordClickHandler={useClickedRectTracker()}
     >
       <Typography variant="h2">Tech Stack</Typography>
       <Grid container spacing={2}>

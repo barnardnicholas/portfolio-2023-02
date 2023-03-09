@@ -1,12 +1,3 @@
-export const flexStyles = {
-  display: 'flex',
-  alignItems: 'center',
-  p: 1,
-  pl: 0,
-};
-
-export const buttonStyles = {
-  mr: 1,
-  my: 1,
-  border: '1px solid',
-};
+export const modalAnimTimeMs = 333;
+export const modalMarginHorizontal = 20;
+export const modalMarginVertical = 20;

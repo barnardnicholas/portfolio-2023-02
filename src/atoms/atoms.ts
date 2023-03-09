@@ -1,4 +1,6 @@
+import { modalAnimTimeMs } from '@/constants/constants';
 import { ThemeKey } from '@/theme/types';
+import { Rect } from '@/types/shared';
 import { atom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 
@@ -20,3 +22,17 @@ const prefersDarkMode =
   !!window.matchMedia && !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 export const themeAtom = atomWithStorage<ThemeKey>('theme', prefersDarkMode ? 'dark' : 'light');
+
+// export const clickedRectAtom = atom<Rect | null>(null);
+const baseClickedRectAtom = atom<Rect | null>(null);
+export const clickedRectAtom = atom(
+  (get) => get(baseClickedRectAtom),
+  (get, set, value: Rect | null) => {
+    set(baseClickedRectAtom, value);
+    setTimeout(() => {
+      set(baseClickedRectAtom, null);
+    }, modalAnimTimeMs);
+  },
+);
+
+export const currentModalAtom = atom<string | null>(null);

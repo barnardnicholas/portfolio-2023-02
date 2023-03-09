@@ -10,6 +10,7 @@ import { techStack } from '@pages/home/constants';
 import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
 import ContactLinks from '@components/contactLinks/ContactLinks';
 import { standardTransitions } from '@/theme/constants';
+import useClickedRectTracker from '@hooks/useClickedRectTracker';
 
 const AnimatedBox = animated(Box);
 const AnimatedTypography = animated(Typography);
@@ -19,14 +20,7 @@ const CustomContainer: React.FC<CustomContainerProps> = ({ animationDisabled, ch
   const animStyles = animationDisabled
     ? {}
     : { perspective: '1000px', transformStyle: 'preserve-3d' };
-  return (
-    <CustomCard
-      sx={{ ...baseStyles, animStyles }}
-      onClick={(event: MouseEvent<HTMLDivElement>) => console.dir(event.nativeEvent.target)}
-    >
-      {children}
-    </CustomCard>
-  );
+  return <CustomCard sx={{ ...baseStyles, animStyles }}>{children}</CustomCard>;
 };
 
 const SecondaryContent: React.FC = () => {

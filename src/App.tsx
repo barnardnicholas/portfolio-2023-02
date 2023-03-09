@@ -5,8 +5,8 @@ import useUpdateWindowDimensions from '@hooks/useUpdateWindowDimensions';
 import { Container, useTheme } from '@mui/material';
 import Footer from '@components/footer/Footer';
 import { standardTransitions } from './theme/constants';
-import SpeedDial from '@components/speedDial/SpeedDial';
 import ActionButton from '@components/actionButton/ActionButton';
+import ModalRoot from '@components/modals/ModalRoot';
 
 function App() {
   useUpdateWindowDimensions();
@@ -15,7 +15,6 @@ function App() {
     <div
       className="App"
       style={{
-        // backgroundColor: theme.palette.background.default,
         transition: standardTransitions(theme),
       }}
     >
@@ -24,7 +23,7 @@ function App() {
         <Home />
       </Container>
       <Footer />
-      {/* <SpeedDial /> */}
+      <ModalRoot />
       <ActionButton />
     </div>
   );

@@ -1,10 +1,12 @@
 import React from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Box, Typography } from '@mui/material';
+// import useClickedRectTracker from '@hooks/useClickedRectTracker';
 
 function Summary() {
   return (
     <CustomCard
+      id="summary"
       sx={{
         alignItems: 'flex-start',
         pt: { xs: 3, md: 6 },
@@ -12,6 +14,7 @@ function Summary() {
         mb: 6,
         minWidth: '100%',
       }}
+      // coordClickHandler={useClickedRectTracker()}
     >
       <Typography variant="h2">Summary</Typography>
       <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 2 }}>
