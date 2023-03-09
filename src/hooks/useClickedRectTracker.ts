@@ -14,7 +14,6 @@ const useClickedRectTracker = () => {
         const rect = !!target ? target.getBoundingClientRect() : null;
         setClickedRect(rect);
         setTimeout(() => {
-          console.log('setCurrentModal', id);
           setCurrentModal(id!);
         }, modalAnimTimeMs);
       } catch (e) {
