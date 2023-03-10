@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { queryClientAtom } from 'jotai/query';
 // import './index.css';
 import { ThemeProvider } from './theme/ThemeProvider';
+import { BrowserRouter } from 'react-router-dom';
 // import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const queryClient = new QueryClient();
@@ -18,9 +19,11 @@ root.render(
     <Suspense fallback={<></>}>
       {/* <QueryClientProvider client={queryClient}> */}
       <JotaiStoreProvider initialValues={[[queryClientAtom, queryClient]]}>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
+        <BrowserRouter>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </BrowserRouter>
       </JotaiStoreProvider>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       {/* </QueryClientProvider> */}

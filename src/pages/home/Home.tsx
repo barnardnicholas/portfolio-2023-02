@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 
 import HeroCard from '@components/animation/HeroCard';
 import TechStack from './TechStack';
@@ -9,7 +9,7 @@ import Portfolio from './Portfolio';
 
 function Home() {
   return (
-    <>
+    <Container>
       <Box sx={{ height: '66vh', display: 'grid', gridTemplateRows: '1fr 1fr', mb: '20vh' }}>
         <Box></Box>
         <Box
@@ -28,7 +28,7 @@ function Home() {
       <TechStack />
       <AgencyWork />
       <Portfolio />
-    </>
+    </Container>
   );
 }
 
