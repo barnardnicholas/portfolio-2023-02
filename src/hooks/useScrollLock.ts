@@ -17,9 +17,10 @@ import { MutableRefObject, useEffect } from 'react';
 //   }
 // }
 
-const cancelScrollEvent = (e: WheelEvent) => {
+const cancelScrollEvent = (e: WheelEvent | TouchEvent) => {
   e.stopImmediatePropagation();
-  e.preventDefault();
+  e.stopPropagation();
+  //   e.preventDefault();
   return false;
 };
 
@@ -41,7 +42,6 @@ const useScrollLock = (elementRef: MutableRefObject<HTMLDivElement | null>) => {
     //   );
     // } catch (e) {}
     // const wheelOpt = supportsPassive ? { passive: false } : false;
-    // const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 
     // function disableScroll() {
     //   if (!!element) {
@@ -66,7 +66,7 @@ const useScrollLock = (elementRef: MutableRefObject<HTMLDivElement | null>) => {
     //   }
     // }
 
-    const onScrollHandler = (e: WheelEvent) => {
+    const wheelScrollHandler = (e: WheelEvent) => {
       if (!element) return;
       const scrollTop = element.scrollTop;
       const scrollHeight = element.scrollHeight;
@@ -84,13 +84,19 @@ const useScrollLock = (elementRef: MutableRefObject<HTMLDivElement | null>) => {
     };
 
     if (!!element) {
-      element.addEventListener('wheel', onScrollHandler, false);
+      element.addEventListener('wheel', wheelScrollHandler, false);
+      //   element.addEventListener('DOMMouseScroll', onScrollHandler, false); // older FF
+      //   element.addEventListener('touchmove', touchScrollHandler, true); // mobile
+      // element.addEventListener('keydown', preventDefaultForScrollKeys, false);
     }
     // disableScroll();
 
     return () => {
       if (!!element) {
-        element.removeEventListener('wheel', onScrollHandler, false);
+        element.removeEventListener('wheel', wheelScrollHandler, false);
+        // element.removeEventListener('DOMMouseScroll', preventDefault, false);
+        // element.removeEventListener('touchmove', touchScrollHandler);
+        //     element.removeEventListener('keydown', preventDefaultForScrollKeys, false);
       }
       //   enableScroll();
     };
