@@ -1,5 +1,9 @@
 @import 'mixins.scss';
 
+html {
+  @include customScrollbar();
+}
+
 body {
   margin: 0 !important;
   @include standardTransitions();
