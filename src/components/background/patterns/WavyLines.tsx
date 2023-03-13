@@ -71,8 +71,8 @@ export default function Example({ width, height, margin = defaultMargin }: Patte
       values: { sm },
     },
   } = useTheme();
-  const [{ w }] = useAtom(windowDimensionsAtom);
-  useUpdateMousePosition(!!(w < sm));
+  // const [{ w }] = useAtom(windowDimensionsAtom);
+  // useUpdateMousePosition(!!(w < sm));
   // use non-animated components if prefers-reduced-motion is set
   const prefersReducedMotion = usePreferReducedMotion();
 
