@@ -18,6 +18,9 @@ function App() {
       className="App"
       style={{
         transition: standardTransitions(theme),
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       <BackgroundContainer />
