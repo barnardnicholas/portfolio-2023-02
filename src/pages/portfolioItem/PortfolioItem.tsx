@@ -4,6 +4,9 @@ import CustomCard from '@components/customCard/CustomCard';
 import { standardTransitions } from '@/theme/constants';
 import { useParams } from 'react-router-dom';
 import PageContainer from '@components/layout/pageContainer/PageContainer';
+import Breadcrumb from '@components/breadcrumb/Breadcrumb';
+
+const portfolioItemBreadcrumb = [{ name: 'Portfolio', path: '/portfolio' }];
 
 function PortfolioItem() {
   const theme = useTheme();
@@ -12,9 +15,7 @@ function PortfolioItem() {
   return (
     <PageContainer sx={{ pt: 6, pb: 6 }}>
       <CustomCard sx={{ alignItems: 'flex-start' }}>
-        <Typography sx={{ mb: 0, transition: standardTransitions(theme) }} variant="body1">
-          ### Breadcrumb ###
-        </Typography>
+        <Breadcrumb items={portfolioItemBreadcrumb} />
         <Typography sx={{ mb: 0, transition: standardTransitions(theme) }} variant="h1">
           Portfolio Item {slug}
         </Typography>

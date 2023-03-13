@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Grid, Link, Typography } from '@mui/material';
+import RouterLink from '@components/routerLink/RouterLink';
 // import useClickedRectTracker from '@hooks/useClickedRectTracker';
 
 function Portfolio() {
@@ -21,22 +22,24 @@ function Portfolio() {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
-          <CustomCard variant="elevation" sx={{ alignItems: 'flex-start' }} riseOnHover>
-            <Typography variant="h3" sx={{ mb: 0 }}>
-              ABRA
-            </Typography>
-            <Typography variant="body1">(Proof-of-concept)</Typography>
-            <Typography variant="body1" sx={{ mb: 3 }}>
-              Ambient sound-generation app for the web, built using React/Typescript and ThreeJS. A
-              POC based on my final Northcoders project, but rewritten to be cleaner and more
-              advanced.
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 3 }}>
-              <Link href="https://github.com/barnardnicholas/abra-web" target="blank">
-                Source code
-              </Link>
-            </Typography>
-          </CustomCard>
+          <RouterLink to="/portfolio/abra">
+            <CustomCard variant="elevation" sx={{ alignItems: 'flex-start' }} riseOnHover>
+              <Typography variant="h3" sx={{ mb: 0 }}>
+                ABRA
+              </Typography>
+              <Typography variant="body1">(Proof-of-concept)</Typography>
+              <Typography variant="body1" sx={{ mb: 3 }}>
+                Ambient sound-generation app for the web, built using React/Typescript and ThreeJS.
+                A POC based on my final Northcoders project, but rewritten to be cleaner and more
+                advanced.
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 3 }}>
+                <Link href="https://github.com/barnardnicholas/abra-web" target="blank">
+                  Source code
+                </Link>
+              </Typography>
+            </CustomCard>
+          </RouterLink>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <CustomCard variant="elevation" sx={{ alignItems: 'flex-start' }} riseOnHover>
