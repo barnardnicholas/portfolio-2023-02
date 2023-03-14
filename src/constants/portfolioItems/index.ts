@@ -1,4 +1,4 @@
-import { PortfolioItem } from '@/theme/types';
+import { PortfolioItem } from '@/types/shared';
 import blank from './blank';
 import abra from './abra';
 import inkReact from './inkReact';

@@ -1,4 +1,4 @@
-import { PortfolioItem } from '@/theme/types';
+import { PortfolioItem } from '@/types/shared';
 import { Link, Typography } from '@mui/material';
 
 const ntgtfoi: PortfolioItem = {
@@ -6,7 +6,9 @@ const ntgtfoi: PortfolioItem = {
   title: 'NTGTFOI',
   thumbnail: '',
   image: '',
-  subtitle: null,
+  subtitle: 'Point & Click Adventure Game',
+  techStack: [],
+  status: null,
   shortDecription: 'Point & Click Adventure Game',
   content: (
     <>

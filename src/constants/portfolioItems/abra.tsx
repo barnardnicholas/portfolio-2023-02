@@ -1,4 +1,4 @@
-import { PortfolioItem } from '@/theme/types';
+import { PortfolioItem } from '@/types/shared';
 import { Typography, Link } from '@mui/material';
 
 const abra: PortfolioItem = {
@@ -7,6 +7,8 @@ const abra: PortfolioItem = {
   thumbnail: '',
   image: '',
   subtitle: 'Ambient sound-generation app',
+  techStack: [],
+  status: null,
   shortDecription:
     'Ambient sound-generation app for the web, built using React/Typescript and ThreeJS. A POC based on my final Northcoders project, but rewritten to be cleaner and more advanced.',
   content: (

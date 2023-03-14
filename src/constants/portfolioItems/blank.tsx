@@ -1,4 +1,4 @@
-import { PortfolioItem } from '@/theme/types';
+import { PortfolioItem } from '@/types/shared';
 
 const blank: PortfolioItem = {
   slug: '',
@@ -6,6 +6,8 @@ const blank: PortfolioItem = {
   thumbnail: '',
   image: '',
   subtitle: null,
+  techStack: [],
+  status: null,
   shortDecription: '',
   content: <></>,
 };

@@ -1,4 +1,4 @@
-import { PortfolioItem } from '@/theme/types';
+import { PortfolioItem } from '@/types/shared';
 import { Link, Typography } from '@mui/material';
 
 const crazyWall: PortfolioItem = {
@@ -7,6 +7,8 @@ const crazyWall: PortfolioItem = {
   thumbnail: '',
   image: '',
   subtitle: '(Work-in-progress)',
+  techStack: [],
+  status: null,
   shortDecription: 'Conspiracy notice board app',
   content: (
     <>

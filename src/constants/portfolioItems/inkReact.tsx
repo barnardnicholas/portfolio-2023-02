@@ -1,4 +1,4 @@
-import { PortfolioItem } from '@/theme/types';
+import { PortfolioItem } from '@/types/shared';
 import { Link, Typography } from '@mui/material';
 
 const inkReact: PortfolioItem = {
@@ -7,6 +7,8 @@ const inkReact: PortfolioItem = {
   thumbnail: '',
   image: '',
   subtitle: '(Proof-of-concept)',
+  techStack: [],
+  status: null,
   shortDecription: 'An Ink Story implementation for React',
   content: (
     <>

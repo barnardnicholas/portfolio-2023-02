@@ -1,12 +1,14 @@
-import { PortfolioItem } from '@/theme/types';
+import { PortfolioItem } from '@/types/shared';
 import { Link, Typography } from '@mui/material';
 
 const plan9: PortfolioItem = {
   slug: 'plan9',
-  title: 'Plan 9 From Outer Space - Frame-By-Frame',
+  title: 'Plan 9 Frame-By-Frame',
   thumbnail: '',
   image: '',
   subtitle: null,
+  techStack: [],
+  status: null,
   shortDecription: 'Twitter B-Movie Screening Bot',
   content: (
     <>
