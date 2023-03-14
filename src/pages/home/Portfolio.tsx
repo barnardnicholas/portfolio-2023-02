@@ -2,6 +2,8 @@ import React from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Grid, Link, Typography } from '@mui/material';
 import RouterLink from '@components/routerLink/RouterLink';
+import portfolioItems, { portfolioSlugs } from '@constants/portfolioItems';
+import { PortfolioItem } from '@/theme/types';
 // import useClickedRectTracker from '@hooks/useClickedRectTracker';
 
 function Portfolio() {
@@ -21,7 +23,22 @@ function Portfolio() {
         PORTFOLIO & OTHER PROJECTS
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={4}>
+        {portfolioSlugs.map((slug: string, i: number) => {
+          const item: PortfolioItem = portfolioItems[slug] || portfolioItems.blank;
+          return (
+            <Grid key={`portfolio-item-${slug}-${i}`} item xs={12} sm={6} md={4}>
+              <RouterLink to={`/portfolio/${item.slug}`}>
+                <CustomCard variant="elevation" sx={{ alignItems: 'flex-start' }} riseOnHover>
+                  <Typography variant="h3" sx={{ mb: 0 }}>
+                    {item.title}
+                  </Typography>
+                  {item.subtitle && <Typography variant="body1">{item.subtitle}</Typography>}
+                </CustomCard>
+              </RouterLink>
+            </Grid>
+          );
+        })}
+        {/* <Grid item xs={12} sm={6} md={4}>
           <RouterLink to="/portfolio/abra">
             <CustomCard variant="elevation" sx={{ alignItems: 'flex-start' }} riseOnHover>
               <Typography variant="h3" sx={{ mb: 0 }}>
@@ -33,7 +50,7 @@ function Portfolio() {
                 A POC based on my final Northcoders project, but rewritten to be cleaner and more
                 advanced.
               </Typography>
-              <Typography variant="body1" sx={{ mb: 3 }}>
+              {/* <Typography variant="body1" sx={{ mb: 3 }}>
                 <Link href="https://github.com/barnardnicholas/abra-web" target="blank">
                   Source code
                 </Link>
@@ -110,7 +127,7 @@ function Portfolio() {
               </Link>
             </Typography>
           </CustomCard>
-        </Grid>
+        </Grid> */}
       </Grid>
     </CustomCard>
   );

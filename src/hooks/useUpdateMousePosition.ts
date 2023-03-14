@@ -12,7 +12,7 @@ const useUpdateMousePosition = (disabled?: boolean) => {
       if (disabled) return;
       setMouseX(event.clientX);
       setMouseY(event.clientY);
-    }, 10);
+    }, 100);
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
