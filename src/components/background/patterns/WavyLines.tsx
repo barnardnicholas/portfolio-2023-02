@@ -2,12 +2,7 @@ import React from 'react';
 import { Bar } from '@visx/shape';
 import { Group } from '@visx/group';
 import { Pattern as CustomPattern } from '@visx/pattern';
-import useUpdateMousePosition from '@hooks/useUpdateMousePosition';
-import { useTheme } from '@mui/material';
-import { useAtom } from 'jotai';
-import { windowDimensionsAtom } from '@/atoms/atoms';
 import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
-import { standardTransitions } from '@/theme/constants';
 
 const defaultMargin = {
   top: 0,
@@ -28,7 +23,6 @@ export interface ItemProps {
 }
 
 const WavyLinesBG: React.FC<ItemProps> = ({ id, prefersReducedMotion }) => {
-  const theme = useTheme();
   const width = 10;
   const height = 10;
 
@@ -59,40 +53,22 @@ const WavyLinesBG: React.FC<ItemProps> = ({ id, prefersReducedMotion }) => {
         fill="none"
         stroke="#444444"
         strokeWidth={1}
-        style={{ transition: standardTransitions(theme) }}
       />
     </CustomPattern>
   );
 };
 
 export default function Example({ width, height, margin = defaultMargin }: PatternProps) {
-  const {
-    breakpoints: {
-      values: { sm },
-    },
-  } = useTheme();
-  // const [{ w }] = useAtom(windowDimensionsAtom);
-  // useUpdateMousePosition(!!(w < sm));
   // use non-animated components if prefers-reduced-motion is set
   const prefersReducedMotion = usePreferReducedMotion();
+  const id = 'wavy-lines-bg';
 
   return width >= 10 ? (
     <svg width={width} height={height} style={{ width: '100%', height: '100%' }}>
       <rect x={0} y={0} width={width} height={height} fill="transparent" rx={14} />
       <Group top={margin.top} left={margin.left}>
-        {[null].map((_, index) => {
-          const id = `visx-pattern-demo-${index}`;
-
-          return (
-            <React.Fragment key={id}>
-              {/** Like SVG <defs />, Patterns are rendered with an id */}
-              <WavyLinesBG id={id} prefersReducedMotion={prefersReducedMotion} />
-
-              {/** And are then referenced for a style attribute. */}
-              <Bar fill={`url(#${id})`} x={0} y={0} width={width} height={height} rx={14} />
-            </React.Fragment>
-          );
-        })}
+        <WavyLinesBG id={id} prefersReducedMotion={prefersReducedMotion} />
+        <Bar fill={`url(#${id})`} x={0} y={0} width={width} height={height} rx={14} />
       </Group>
     </svg>
   ) : null;

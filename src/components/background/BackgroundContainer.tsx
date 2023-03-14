@@ -27,6 +27,7 @@ const BackgroundContainer = () => {
   const [{ w, h }] = useAtom(windowDimensionsAtom);
   const [{ x, y }] = useAtom(mouseXYAtom);
   const effectDisabled = w < theme.breakpoints.values.sm;
+  // const effectDisabled = true;
 
   const { oX, oY } = useMemo(() => getOffset(w, h, x, y, mouseMovementPx), [w, h, x, y]);
 
@@ -40,6 +41,7 @@ const BackgroundContainer = () => {
       transform: `translateX(${oX}px) translateY(${oY}px)`,
     },
   });
+  // const slideStyles = { transform: 'translateX(0) translateY(0)' };
 
   if (effectDisabled)
     return (

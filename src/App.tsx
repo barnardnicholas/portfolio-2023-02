@@ -9,10 +9,15 @@ import ActionButton from '@components/actionButton/ActionButton';
 // import ModalRoot from '@components/modals/ModalRoot';
 import MainRoutes from './routes';
 import ModalRoot from '@components/modals/ModalRoot';
+import { useAtom } from 'jotai';
+import { windowDimensionsAtom } from './atoms/atoms';
+import useUpdateMousePosition from '@hooks/useUpdateMousePosition';
 
 function App() {
-  useUpdateWindowDimensions();
   const theme = useTheme();
+  const [{ w }] = useAtom(windowDimensionsAtom);
+  useUpdateWindowDimensions();
+  useUpdateMousePosition(!!(w < theme.breakpoints.values.sm));
   return (
     <div
       className="App"
@@ -26,7 +31,7 @@ function App() {
       <BackgroundContainer />
       <MainRoutes />
       <Footer />
-      <ModalRoot />
+      {/* <ModalRoot /> */}
       <ActionButton />
     </div>
   );
