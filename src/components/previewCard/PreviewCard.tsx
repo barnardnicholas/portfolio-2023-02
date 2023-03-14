@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Box, Chip, SxProps, Theme, Typography, useTheme } from '@mui/material';
 import { addOpacityToColor } from '@utils/utils';
 import { standardTransitions } from '@/theme/constants';
 
 const PreviewCard: React.FC<PreviewCardProps> = ({
-  src = 'https://placehold.jp/3d4070/ffffff/150x150.png',
+  src,
   variant,
   title,
   subtitle,
@@ -13,10 +13,18 @@ const PreviewCard: React.FC<PreviewCardProps> = ({
   sx = {},
 }) => {
   const theme = useTheme();
+  const fallbackSrc = useMemo(
+    () =>
+      `https://placehold.jp/${theme.palette.text.primary.replace(
+        '#',
+        '',
+      )}/${theme.palette.background.default.replace('#', '')}/300x300.png`,
+    [theme.palette.text.primary, theme.palette.background.default],
+  );
   return (
     <CustomCard variant={variant} sx={{ alignItems: 'flex-start', ...sx }} riseOnHover>
       <img
-        src={src}
+        src={src || fallbackSrc}
         loading="lazy"
         alt={`${title} preview image`}
         width="100%"
