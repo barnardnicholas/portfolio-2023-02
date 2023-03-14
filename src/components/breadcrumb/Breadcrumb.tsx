@@ -15,7 +15,13 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
       {[homeBreadcrumb, ...items].map((item: Breadcrumb, i: number, arr: Breadcrumb[]) => {
         return (
           <React.Fragment key={`breadcrumb-${i}`}>
-            <RouterLink to={item.path}>{item.name}</RouterLink>
+            {!item.path ? (
+              <>{item.name}</>
+            ) : (
+              <RouterLink underlinedText to={item.path}>
+                {item.name}
+              </RouterLink>
+            )}
             {i < arr.length - 1 && <>{' > '}</>}
           </React.Fragment>
         );
@@ -26,7 +32,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
 
 type Breadcrumb = {
   name: string;
-  path: string;
+  path?: string;
 };
 
 interface BreadcrumbProps {
