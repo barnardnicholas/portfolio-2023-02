@@ -24,7 +24,7 @@ function Summary() {
         </Typography>
         <Typography variant="body1">
           Currently mid-level Front-End Dev at CTI Digital, Manchester, UK. Based in Toronto from
-          July 2023, actively seeking full-time work as a Mid/Senior Javascript Developer.
+          June 2023, actively seeking full-time work as a Mid/Senior Javascript Developer.
         </Typography>
         <Typography variant="body1">
           Solid experience with multiple digital agencies, comfortable with Agile/SCRUM. Have

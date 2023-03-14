@@ -4,6 +4,7 @@ import { Grid, Typography } from '@mui/material';
 import RouterLink from '@components/routerLink/RouterLink';
 import portfolioItems, { portfolioSlugs } from '@constants/portfolioItems';
 import { PortfolioItem } from '@/types/shared';
+import PreviewCard from '@components/previewCard/PreviewCard';
 
 function Portfolio() {
   return (
@@ -26,12 +27,13 @@ function Portfolio() {
           return (
             <Grid key={`portfolio-item-${slug}-${i}`} item xs={12} sm={6} md={4}>
               <RouterLink to={`/portfolio/${item.slug}`}>
-                <CustomCard variant="elevation" sx={{ alignItems: 'flex-start' }} riseOnHover>
-                  <Typography variant="h3" sx={{ mb: 0 }}>
-                    {item.title}
-                  </Typography>
-                  {item.subtitle && <Typography variant="body1">{item.subtitle}</Typography>}
-                </CustomCard>
+                <PreviewCard
+                  title={item.title}
+                  subtitle={item.subtitle}
+                  variant="elevation"
+                  techStack={[]}
+                  sx={{ minHeight: 320 }}
+                />
               </RouterLink>
             </Grid>
           );
