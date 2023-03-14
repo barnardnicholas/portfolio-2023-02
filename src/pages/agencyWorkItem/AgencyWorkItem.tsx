@@ -5,37 +5,37 @@ import { standardTransitions } from '@/theme/constants';
 import { useParams } from 'react-router-dom';
 import PageContainer from '@components/layout/pageContainer/PageContainer';
 import Breadcrumb from '@components/breadcrumb/Breadcrumb';
-import portfolioItems from '@constants/portfolioItems';
+import agencyWork from '@constants/agencyWork';
 
-function PortfolioItem() {
+function AgencyWorkItem() {
   const theme = useTheme();
   const { slug } = useParams<{ slug: string }>();
 
-  const portfolioItem = portfolioItems[slug || 'blank'];
-  if (!slug || !portfolioItem) return null;
+  const agencyWorkItem = agencyWork[slug || 'blank'];
+  if (!slug || !agencyWorkItem) return null;
 
-  const portfolioItemBreadcrumb = [
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: portfolioItem.title },
+  const agencyWorkItemBreadcrumb = [
+    { name: 'Agency Work', path: '/agency-work' },
+    { name: agencyWorkItem.title },
   ];
 
   return (
     <PageContainer sx={{ pt: 6, pb: 6 }}>
       <CustomCard sx={{ alignItems: 'flex-start' }}>
-        <Breadcrumb items={portfolioItemBreadcrumb} />
+        <Breadcrumb items={agencyWorkItemBreadcrumb} />
         <Typography sx={{ mb: 0, transition: standardTransitions(theme) }} variant="h1">
-          {portfolioItem.title}
+          {agencyWorkItem.title}
         </Typography>
-        {portfolioItem.subtitle && (
+        {agencyWorkItem.subtitle && (
           <Typography sx={{ mb: 0, transition: standardTransitions(theme) }} variant="body1">
-            {portfolioItem.subtitle}
+            {agencyWorkItem.subtitle}
           </Typography>
         )}
         <Box sx={{ mb: 4 }} />
-        {portfolioItem.content}
+        {agencyWorkItem.content}
       </CustomCard>
     </PageContainer>
   );
 }
 
-export default PortfolioItem;
+export default AgencyWorkItem;
