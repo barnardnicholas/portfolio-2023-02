@@ -5,8 +5,12 @@ import RouterLink from '@components/routerLink/RouterLink';
 import portfolioItems, { portfolioSlugs } from '@constants/portfolioItems';
 import { PortfolioItem } from '@/types/shared';
 import PreviewCard from '@components/previewCard/PreviewCard';
+import { getPortfolioImagePathFromSlug } from '@utils/utils';
+import { useAtom } from 'jotai';
+import { themeAtom } from '@/atoms/atoms';
 
 function Portfolio() {
+  const [currentTheme] = useAtom(themeAtom);
   return (
     <CustomCard
       id="portfolio"
@@ -28,6 +32,7 @@ function Portfolio() {
             <Grid key={`portfolio-item-${slug}-${i}`} item xs={12} sm={6} md={4}>
               <RouterLink to={`/portfolio/${item.slug}`}>
                 <PreviewCard
+                  src={getPortfolioImagePathFromSlug(item.slug, currentTheme, '@0.25x')}
                   title={item.title}
                   subtitle={item.subtitle}
                   variant="elevation"
