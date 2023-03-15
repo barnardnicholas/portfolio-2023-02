@@ -11,7 +11,7 @@ import PageContainer from '@components/layout/pageContainer/PageContainer';
 function Home() {
   return (
     <PageContainer>
-      <Box sx={{ height: '66vh', display: 'grid', gridTemplateRows: '1fr 1fr', mb: '20vh' }}>
+      <Box sx={{ height: '50vh', display: 'grid', gridTemplateRows: '1fr 1fr', mb: '20vh' }}>
         <Box></Box>
         <Box
           className="title-box"
