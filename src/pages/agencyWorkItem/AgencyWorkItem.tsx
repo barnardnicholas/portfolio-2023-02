@@ -20,7 +20,7 @@ function AgencyWorkItem() {
   ];
 
   return (
-    <PageContainer sx={{ pt: 6, pb: 6 }}>
+    <PageContainer>
       <CustomCard sx={{ alignItems: 'flex-start' }}>
         <Breadcrumb items={agencyWorkItemBreadcrumb} />
         <Typography sx={{ mb: 0, transition: standardTransitions(theme) }} variant="h1">

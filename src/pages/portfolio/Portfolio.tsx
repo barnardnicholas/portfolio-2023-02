@@ -12,7 +12,7 @@ function Portfolio() {
   const portfolioBreadcrumb = [{ name: 'Portfolio' }];
 
   return (
-    <PageContainer sx={{ pt: 6, pb: 6 }}>
+    <PageContainer>
       <CustomCard
         id="portfolio"
         sx={{
