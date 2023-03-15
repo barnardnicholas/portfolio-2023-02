@@ -1,3 +1,5 @@
+import { ThemeKey } from '@/theme/types';
+
 export function clamp(value: number, min: number, max: number): number {
   if (min < max) {
     if (value < min) return min;
@@ -117,3 +119,9 @@ export function addOpacityToColor(color: string, opacity: number) {
   const op = '00'.concat(opacityValue.toString(16).toUpperCase()).slice(-2);
   return `#${(((1 << 24) + (rr << 16) + (rg << 8) + rb) | 0).toString(16).slice(1)}${op}`;
 }
+
+export const getPortfolioImagePathFromSlug = (slug: string, themeKey: ThemeKey, suffix?: string) =>
+  `/img/portfolio-items/${slug}-${themeKey === 'dark' ? 'light' : 'dark'}${suffix ?? ''}.jpg`;
+
+export const getAgencyImagePathFromSlug = (slug: string, themeKey: ThemeKey, suffix?: string) =>
+  `/img/portfolio-items/${slug}-${themeKey === 'dark' ? 'light' : 'dark'}${suffix ?? ''}.jpg`;
