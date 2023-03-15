@@ -7,9 +7,13 @@ import { PortfolioItem } from '@/types/shared';
 import PageContainer from '@components/layout/pageContainer/PageContainer';
 import Breadcrumb from '@components/breadcrumb/Breadcrumb';
 import PreviewCard from '@components/previewCard/PreviewCard';
+import { getPortfolioImagePathFromSlug } from '@utils/utils';
+import { useAtom } from 'jotai';
+import { themeAtom } from '@/atoms/atoms';
 
 function Portfolio() {
   const portfolioBreadcrumb = [{ name: 'Portfolio' }];
+  const [currentTheme] = useAtom(themeAtom);
 
   return (
     <PageContainer>
@@ -34,6 +38,7 @@ function Portfolio() {
               <Grid key={`portfolio-item-${slug}-${i}`} item xs={12} sm={6} md={4}>
                 <RouterLink to={`/portfolio/${item.slug}`}>
                   <PreviewCard
+                    src={getPortfolioImagePathFromSlug(item.slug, currentTheme, '@0.25x')}
                     title={item.title}
                     subtitle={item.subtitle}
                     variant="elevation"
