@@ -7,7 +7,7 @@ const inkReact: PortfolioItem = {
   thumbnail: '',
   image: '',
   subtitle: '(Proof-of-concept)',
-  techStack: [],
+  techStack: ['react', 'typescript', 'javascript', 'ink', 'inkjs'],
   status: null,
   shortDecription: 'An Ink Story implementation for React',
   content: (

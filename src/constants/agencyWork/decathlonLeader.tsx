@@ -7,7 +7,7 @@ const decathlonLeader: AgencyWork = {
   thumbnail: '',
   image: '',
   subtitle: null,
-  techStack: [],
+  techStack: ['react', 'typescript', 'javascript', 'redux', 'redux-toolkit'],
   client: 'Silverchip/CTI',
   shortDecription: 'Internal Peer-Review Tool',
   content: (

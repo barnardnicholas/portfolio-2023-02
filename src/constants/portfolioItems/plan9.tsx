@@ -7,7 +7,7 @@ const plan9: PortfolioItem = {
   thumbnail: '',
   image: '',
   subtitle: null,
-  techStack: [],
+  techStack: ['twitter', 'node', 'express'],
   status: null,
   shortDecription: 'Twitter B-Movie Screening Bot',
   content: (

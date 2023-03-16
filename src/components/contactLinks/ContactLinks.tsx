@@ -13,6 +13,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({ sx = {} }) => {
           href={link}
           IconComponent={IconComponent}
           target="blank"
+          iconOnly
           isLastItem={i < contacts.length - 1 ? true : false}
         />
       ))}

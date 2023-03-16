@@ -7,7 +7,15 @@ const bolsterSystems: AgencyWork = {
   thumbnail: '',
   image: '',
   subtitle: null,
-  techStack: [],
+  techStack: [
+    'react',
+    'typescript',
+    'javascript',
+    'react-native',
+    'react-native-reanimated',
+    'redux',
+    'redux-toolkit',
+  ],
   client: 'Silverchip/CTI',
   shortDecription: 'Safety & compliance tool',
   content: (

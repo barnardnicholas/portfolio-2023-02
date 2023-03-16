@@ -3,7 +3,11 @@ import CustomChip from '@components/customChip/CustomChip';
 import { TechStackItem } from '@constants/techStackItems';
 import { Box, SxProps, Theme } from '@mui/material';
 
-const TechStackChips: React.FC<TechStackChipsProps> = ({ items = [], sx = {} }) => {
+const TechStackChips: React.FC<TechStackChipsProps> = ({
+  items = [],
+  sx = {},
+  iconOnly = false,
+}) => {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1, ...sx }}>
       {items.map(({ name, IconComponent, slug }, i: number) => (
@@ -15,6 +19,7 @@ const TechStackChips: React.FC<TechStackChipsProps> = ({ items = [], sx = {} }) 
           IconComponent={IconComponent ? IconComponent : undefined}
           target="blank"
           isLastItem={i < items.length - 1 ? true : false}
+          iconOnly={iconOnly}
         />
       ))}
     </Box>
@@ -23,6 +28,7 @@ const TechStackChips: React.FC<TechStackChipsProps> = ({ items = [], sx = {} }) 
 
 interface TechStackChipsProps {
   items: TechStackItem[];
+  iconOnly?: boolean;
   sx?: SxProps<Theme>;
 }
 

@@ -7,7 +7,7 @@ const ntgtfoi: PortfolioItem = {
   thumbnail: '',
   image: '',
   subtitle: 'Point & Click Adventure Game',
-  techStack: [],
+  techStack: ['ags'],
   status: null,
   shortDecription: 'Point & Click Adventure Game',
   content: (

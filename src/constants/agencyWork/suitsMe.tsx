@@ -7,7 +7,15 @@ const suitsMe: AgencyWork = {
   thumbnail: '',
   image: '',
   subtitle: null,
-  techStack: [],
+  techStack: [
+    'react',
+    'typescript',
+    'javascript',
+    'react-native',
+    'react-native-reanimated',
+    'redux',
+    'redux-toolkit',
+  ],
   client: 'Silverchip/CTI',
   shortDecription: 'Banking app for web & mobile',
   content: (

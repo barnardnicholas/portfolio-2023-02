@@ -7,7 +7,7 @@ const crazyWall: PortfolioItem = {
   thumbnail: '',
   image: '',
   subtitle: '(Work-in-progress)',
-  techStack: [],
+  techStack: ['react', 'javascript'],
   status: null,
   shortDecription: 'Conspiracy notice board app',
   content: (

@@ -1,8 +1,10 @@
 import React, { useMemo } from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Box, Chip, SxProps, Theme, Typography, useTheme } from '@mui/material';
-import { addOpacityToColor } from '@utils/utils';
+import { addOpacityToColor, getTechStackItemsFromSlugs } from '@utils/utils';
 import { standardTransitions } from '@/theme/constants';
+import TechStackChips from '@components/techStackChips/TechStackChips';
+import { TechStackItem } from '@constants/techStackItems';
 
 const PreviewCard: React.FC<PreviewCardProps> = ({
   src,
@@ -21,8 +23,18 @@ const PreviewCard: React.FC<PreviewCardProps> = ({
       )}/${theme.palette.background.default.replace('#', '')}/300x300.png`,
     [theme.palette.text.primary, theme.palette.background.default],
   );
+
+  const filteredTechStack = useMemo(() => {
+    const techStackItems = getTechStackItemsFromSlugs(techStack);
+    return techStackItems.filter((item: TechStackItem) => !!item.IconComponent);
+  }, [techStack]);
+
   return (
-    <CustomCard variant={variant} sx={{ alignItems: 'flex-start', ...sx }} riseOnHover>
+    <CustomCard
+      variant={variant}
+      sx={{ alignItems: 'flex-start', justifyContent: 'flex-start', ...sx }}
+      riseOnHover
+    >
       <img
         src={src || fallbackSrc}
         loading="lazy"
@@ -44,25 +56,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({
       <Typography variant="body1" sx={{ mb: 1 }}>
         {subtitle || ' '}
       </Typography>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1, mb: 0 }}>
-        {techStack.length ? (
-          techStack.map((label: string, i: number) => (
-            <Chip
-              key={`${label}-${i}`}
-              label={label}
-              clickable
-              sx={{
-                mb: 1,
-                mr: i < techStack.length ? 1 : 0,
-                transition: standardTransitions(theme),
-              }}
-              onClick={() => console.log(`Click ${label}`)}
-            />
-          ))
-        ) : (
-          <Box sx={{ minHeight: '40px' }} />
-        )}
-      </Box>
+      <TechStackChips items={filteredTechStack} iconOnly />
     </CustomCard>
   );
 };
