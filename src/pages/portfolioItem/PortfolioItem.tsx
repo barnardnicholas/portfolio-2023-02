@@ -6,9 +6,15 @@ import { useParams } from 'react-router-dom';
 import PageContainer from '@components/layout/pageContainer/PageContainer';
 import Breadcrumb from '@components/breadcrumb/Breadcrumb';
 import portfolioItems from '@constants/portfolioItems';
-import { addOpacityToColor, getPortfolioImagePathFromSlug } from '@utils/utils';
+import {
+  addOpacityToColor,
+  getPortfolioImagePathFromSlug,
+  getTechStackItemsFromSlugs,
+} from '@utils/utils';
 import { useAtom } from 'jotai';
 import { themeAtom } from '@/atoms/atoms';
+
+import TechStackChips from '@components/techStackChips/TechStackChips';
 
 function PortfolioItem() {
   const theme = useTheme();
@@ -17,6 +23,8 @@ function PortfolioItem() {
 
   const portfolioItem = portfolioItems[slug || 'blank'];
   if (!slug || !portfolioItem) return null;
+
+  const techStack = getTechStackItemsFromSlugs(portfolioItem.techStack);
 
   const portfolioItemBreadcrumb = [
     { name: 'Portfolio', path: '/portfolio' },
@@ -47,13 +55,17 @@ function PortfolioItem() {
         </Typography>
         {portfolioItem.subtitle && (
           <Typography
-            sx={{ mb: 0, transition: standardTransitions(theme), columnCount: 2 }}
+            sx={{
+              transition: standardTransitions(theme),
+              columnCount: 2,
+              mb: portfolioItem.techStack.length ? 1 : 4,
+            }}
             variant="body1"
           >
             {portfolioItem.subtitle}
           </Typography>
         )}
-        <Box sx={{ mb: 4 }} />
+        {!!techStack.length && <TechStackChips items={techStack} sx={{ mb: 4 }} />}
         <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 2 }}>{portfolioItem.content}</Box>
       </CustomCard>
     </PageContainer>

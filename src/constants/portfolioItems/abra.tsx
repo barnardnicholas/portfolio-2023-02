@@ -7,7 +7,7 @@ const abra: PortfolioItem = {
   thumbnail: '',
   image: '',
   subtitle: 'Ambient sound-generation app',
-  techStack: [],
+  techStack: ['react', 'typescript', 'javascript', 'redux', 'threejs', 'react-three-fiber'],
   status: null,
   shortDecription:
     'Ambient sound-generation app for the web, built using React/Typescript and ThreeJS. A POC based on my final Northcoders project, but rewritten to be cleaner and more advanced.',
