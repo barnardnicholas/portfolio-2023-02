@@ -36,7 +36,7 @@ function Portfolio() {
                   title={item.title}
                   subtitle={item.subtitle}
                   variant="elevation"
-                  techStack={[]}
+                  techStack={item.techStack}
                   sx={{ minHeight: 320 }}
                 />
               </RouterLink>
