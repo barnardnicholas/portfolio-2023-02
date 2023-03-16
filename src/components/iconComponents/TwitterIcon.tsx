@@ -8,6 +8,7 @@ const TwitterIcon: React.FC<IconComponentProps> = ({ style = {} }) => {
   const containerStyle: CSSProperties = {
     width: '1rem',
     height: '1rem',
+    ...style,
   };
   const pathStyle: CSSProperties = {
     fill: theme.palette.text.primary,

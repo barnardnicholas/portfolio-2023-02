@@ -1,3 +1,18 @@
+import CraIcon from '@components/iconComponents/CRAIcon';
+import ExpressIcon from '@components/iconComponents/ExpressIcon';
+import FirebaseIcon from '@components/iconComponents/FirebaseIcon';
+import JavascriptIcon from '@components/iconComponents/JavascriptIcon';
+import MuiIcon from '@components/iconComponents/MuiIcon';
+import NodeIcon from '@components/iconComponents/NodeIcon';
+import ReactIcon from '@components/iconComponents/ReactIcon';
+import ReactSpringIcon from '@components/iconComponents/ReactSpringIcon';
+import ReduxIcon from '@components/iconComponents/ReduxIcon';
+import SassIcon from '@components/iconComponents/SassIcon';
+import ThreeIcon from '@components/iconComponents/ThreeIcon';
+import TwitterIcon from '@components/iconComponents/TwitterIcon';
+import TypescriptIcon from '@components/iconComponents/TypescriptIcon';
+import ViteIcon from '@components/iconComponents/ViteIcon';
+
 export interface TechStackItem {
   slug: string;
   name: string;
@@ -8,12 +23,12 @@ const techStackItems: Record<string, TechStackItem> = {
   react: {
     name: 'React',
     slug: 'react',
-    IconComponent: null,
+    IconComponent: ReactIcon,
   },
   'react-spring': {
     name: 'React Spring',
     slug: 'react-spring',
-    IconComponent: null,
+    IconComponent: ReactSpringIcon,
   },
   'react-native': {
     name: 'React Native',
@@ -28,17 +43,17 @@ const techStackItems: Record<string, TechStackItem> = {
   typescript: {
     name: 'Typescript',
     slug: 'typescript',
-    IconComponent: null,
+    IconComponent: TypescriptIcon,
   },
   javascript: {
     name: 'Javascript',
     slug: 'javascript',
-    IconComponent: null,
+    IconComponent: JavascriptIcon,
   },
   redux: {
     name: 'Redux',
     slug: 'redux',
-    IconComponent: null,
+    IconComponent: ReduxIcon,
   },
   'redux-toolkit': {
     name: 'Redux Toolkit',
@@ -48,17 +63,17 @@ const techStackItems: Record<string, TechStackItem> = {
   threejs: {
     name: 'ThreeJS',
     slug: 'threejs',
-    IconComponent: null,
+    IconComponent: ThreeIcon,
   },
   'react-three-fiber': {
     name: 'React Three Fiber',
     slug: 'react-three-fiber',
-    IconComponent: null,
+    IconComponent: ThreeIcon,
   },
   twitter: {
     name: 'Twitter',
     slug: 'twitter',
-    IconComponent: null,
+    IconComponent: TwitterIcon,
   },
   ags: {
     name: 'AGS',
@@ -68,12 +83,12 @@ const techStackItems: Record<string, TechStackItem> = {
   node: {
     name: 'Node',
     slug: 'node',
-    IconComponent: null,
+    IconComponent: NodeIcon,
   },
   express: {
     name: 'Express',
     slug: 'express',
-    IconComponent: null,
+    IconComponent: ExpressIcon,
   },
   jotai: {
     name: 'Jotai',
@@ -83,22 +98,27 @@ const techStackItems: Record<string, TechStackItem> = {
   vite: {
     name: 'Vite',
     slug: 'vite',
-    IconComponent: null,
+    IconComponent: ViteIcon,
   },
   sass: {
     name: 'SASS',
     slug: 'sass',
-    IconComponent: null,
+    IconComponent: SassIcon,
   },
   mui: {
     name: 'Material UI',
     slug: 'mui',
-    IconComponent: null,
+    IconComponent: MuiIcon,
   },
   firebase: {
     name: 'Firebase',
     slug: 'firebase',
-    IconComponent: null,
+    IconComponent: FirebaseIcon,
+  },
+  cra: {
+    name: 'Create React App',
+    slug: 'cra',
+    IconComponent: CraIcon,
   },
 };
 
