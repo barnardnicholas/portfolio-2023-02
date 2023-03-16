@@ -1,4 +1,5 @@
 import { ThemeKey } from '@/theme/types';
+import techStackItems, { TechStackItem } from '@constants/techStackItems';
 
 export function clamp(value: number, min: number, max: number): number {
   if (min < max) {
@@ -125,3 +126,9 @@ export const getPortfolioImagePathFromSlug = (slug: string, themeKey: ThemeKey, 
 
 export const getAgencyImagePathFromSlug = (slug: string, themeKey: ThemeKey, suffix?: string) =>
   `/img/agency-work/${slug}-${themeKey === 'dark' ? 'light' : 'dark'}${suffix ?? ''}.jpg`;
+
+export const getTechStackItemsFromSlugs = (slugs: string[]) =>
+  slugs.reduce((acc: TechStackItem[], curr: string) => {
+    if (techStackItems[curr]) return [...acc, techStackItems[curr]];
+    return acc;
+  }, [] as TechStackItem[]);
