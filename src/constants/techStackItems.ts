@@ -85,6 +85,21 @@ const techStackItems: Record<string, TechStackItem> = {
     slug: 'vite',
     IconComponent: null,
   },
+  sass: {
+    name: 'SASS',
+    slug: 'sass',
+    IconComponent: null,
+  },
+  mui: {
+    name: 'Material UI',
+    slug: 'mui',
+    IconComponent: null,
+  },
+  firebase: {
+    name: 'Firebase',
+    slug: 'firebase',
+    IconComponent: null,
+  },
 };
 
 export default techStackItems;
