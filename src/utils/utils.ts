@@ -124,4 +124,4 @@ export const getPortfolioImagePathFromSlug = (slug: string, themeKey: ThemeKey, 
   `/img/portfolio-items/${slug}-${themeKey === 'dark' ? 'light' : 'dark'}${suffix ?? ''}.jpg`;
 
 export const getAgencyImagePathFromSlug = (slug: string, themeKey: ThemeKey, suffix?: string) =>
-  `/img/portfolio-items/${slug}-${themeKey === 'dark' ? 'light' : 'dark'}${suffix ?? ''}.jpg`;
+  `/img/agency-work/${slug}-${themeKey === 'dark' ? 'light' : 'dark'}${suffix ?? ''}.jpg`;

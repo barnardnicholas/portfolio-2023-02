@@ -6,9 +6,13 @@ import PageContainer from '@components/layout/pageContainer/PageContainer';
 import Breadcrumb from '@components/breadcrumb/Breadcrumb';
 import agencyWork, { agencySlugs } from '@constants/agencyWork';
 import PreviewCard from '@components/previewCard/PreviewCard';
+import { getAgencyImagePathFromSlug } from '@utils/utils';
+import { useAtom } from 'jotai';
+import { themeAtom } from '@/atoms/atoms';
 
 function AgencyWork() {
   const agencyWorkBreadcrumb = [{ name: 'Portfolio' }];
+  const [currentTheme] = useAtom(themeAtom);
 
   return (
     <PageContainer>
@@ -36,6 +40,7 @@ function AgencyWork() {
               <Grid key={`agency-work-${slug}-${i}`} item xs={12} sm={6} md={4}>
                 <RouterLink to={`/agency-work/${item.slug}`}>
                   <PreviewCard
+                    src={getAgencyImagePathFromSlug(item.slug, currentTheme, '@0.25x')}
                     title={item.title}
                     subtitle={item.subtitle}
                     variant="elevation"

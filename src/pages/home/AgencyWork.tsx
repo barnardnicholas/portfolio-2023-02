@@ -4,8 +4,12 @@ import { Grid, Typography } from '@mui/material';
 import agencyWork, { agencySlugs } from '@constants/agencyWork';
 import RouterLink from '@components/routerLink/RouterLink';
 import PreviewCard from '@components/previewCard/PreviewCard';
+import { getAgencyImagePathFromSlug } from '@utils/utils';
+import { useAtom } from 'jotai';
+import { themeAtom } from '@/atoms/atoms';
 
 function AgencyWork() {
+  const [currentTheme] = useAtom(themeAtom);
   return (
     <CustomCard
       id="agency-work"
@@ -28,6 +32,7 @@ function AgencyWork() {
             <Grid key={`agency-work-${slug}-${i}`} item xs={12} sm={6} md={4}>
               <RouterLink to={`/agency-work/${item.slug}`}>
                 <PreviewCard
+                  src={getAgencyImagePathFromSlug(item.slug, currentTheme, '@0.25x')}
                   title={item.title}
                   subtitle={item.subtitle}
                   variant="elevation"
