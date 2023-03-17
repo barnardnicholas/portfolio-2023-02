@@ -1,12 +1,17 @@
-import CraIcon from '@components/iconComponents/CRAIcon';
+import CraIcon from '@components/iconComponents/CraIcon';
 import ExpressIcon from '@components/iconComponents/ExpressIcon';
 import FirebaseIcon from '@components/iconComponents/FirebaseIcon';
 import JavascriptIcon from '@components/iconComponents/JavascriptIcon';
+import JotaiIcon from '@components/iconComponents/JotaiIcon';
 import MuiIcon from '@components/iconComponents/MuiIcon';
 import NodeIcon from '@components/iconComponents/NodeIcon';
 import ReactIcon from '@components/iconComponents/ReactIcon';
+import ReactNativeIcon from '@components/iconComponents/ReactNativeIcon';
+import ReactNativeReanimatedIcon from '@components/iconComponents/ReactNativeReanimatedIcon';
 import ReactSpringIcon from '@components/iconComponents/ReactSpringIcon';
+import ReactThreeFiberIcon from '@components/iconComponents/ReactThreeFiberIcon';
 import ReduxIcon from '@components/iconComponents/ReduxIcon';
+import ReduxToolkitIcon from '@components/iconComponents/ReduxToolkitIcon';
 import SassIcon from '@components/iconComponents/SassIcon';
 import ThreeIcon from '@components/iconComponents/ThreeIcon';
 import TwitterIcon from '@components/iconComponents/TwitterIcon';
@@ -33,12 +38,12 @@ const techStackItems: Record<string, TechStackItem> = {
   'react-native': {
     name: 'React Native',
     slug: 'react-native',
-    IconComponent: null,
+    IconComponent: ReactNativeIcon,
   },
   'react-native-reanimated': {
     name: 'React Native Reanimated',
     slug: 'react-native-reanimated',
-    IconComponent: null,
+    IconComponent: ReactNativeReanimatedIcon,
   },
   typescript: {
     name: 'Typescript',
@@ -58,7 +63,7 @@ const techStackItems: Record<string, TechStackItem> = {
   'redux-toolkit': {
     name: 'Redux Toolkit',
     slug: 'redux-toolkit',
-    IconComponent: null,
+    IconComponent: ReduxToolkitIcon,
   },
   threejs: {
     name: 'ThreeJS',
@@ -68,7 +73,7 @@ const techStackItems: Record<string, TechStackItem> = {
   'react-three-fiber': {
     name: 'React Three Fiber',
     slug: 'react-three-fiber',
-    IconComponent: ThreeIcon,
+    IconComponent: ReactThreeFiberIcon,
   },
   twitter: {
     name: 'Twitter',
@@ -93,7 +98,7 @@ const techStackItems: Record<string, TechStackItem> = {
   jotai: {
     name: 'Jotai',
     slug: 'jotai',
-    IconComponent: null,
+    IconComponent: JotaiIcon,
   },
   vite: {
     name: 'Vite',
