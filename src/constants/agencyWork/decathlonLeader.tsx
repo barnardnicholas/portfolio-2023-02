@@ -1,5 +1,5 @@
 import { AgencyWork } from '@/types/shared';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 const decathlonLeader: AgencyWork = {
   slug: 'decathlon-leader',
@@ -12,12 +12,14 @@ const decathlonLeader: AgencyWork = {
   shortDecription: 'Internal Peer-Review Tool',
   content: (
     <>
-      <Typography variant="body1" sx={{ mb: 3 }}>
-        Mobile-first web app - React JS/TS, Redux, Express/Knex. Internal peer-reviewing tool for
-        Decathlon employees. Interactive self-assessment questionnaire and responsive data
-        visualisation. Using Decathlon’s own OAuth system. API built to client’s specifications
-        using Node & ExpressTS with Knex & PSQL.
-      </Typography>
+      <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 2 }}>
+        <Typography variant="body1" sx={{ mb: 3 }}>
+          Mobile-first web app - React JS/TS, Redux, Express/Knex. Internal peer-reviewing tool for
+          Decathlon employees. Interactive self-assessment questionnaire and responsive data
+          visualisation. Using Decathlon’s own OAuth system. API built to client’s specifications
+          using Node & ExpressTS with Knex & PSQL.
+        </Typography>
+      </Box>
     </>
   ),
 };
