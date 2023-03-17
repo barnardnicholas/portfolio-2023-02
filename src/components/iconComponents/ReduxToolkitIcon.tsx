@@ -16,7 +16,8 @@ const ReduxToolkitIcon: React.FC<IconComponentProps> = ({ style = {} }) => {
   };
   const textStyle = {
     ...pathStyle,
-    stroke: theme.palette.background.default,
+    stroke: theme.palette.background.paper,
+    strokeWidth: 10,
   };
   return (
     <svg

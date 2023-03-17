@@ -16,7 +16,8 @@ const ReactNativeIcon: React.FC<IconComponentProps> = ({ style = {} }) => {
   };
   const textStyle = {
     ...pathStyle,
-    stroke: theme.palette.background.default,
+    stroke: theme.palette.background.paper,
+    strokeWidth: 8,
   };
   return (
     <svg
