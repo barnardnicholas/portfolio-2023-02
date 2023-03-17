@@ -1,5 +1,5 @@
 import { PortfolioItem } from '@/types/shared';
-import { Link, Typography } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
 
 const plan9: PortfolioItem = {
   slug: 'plan9',
@@ -12,12 +12,14 @@ const plan9: PortfolioItem = {
   shortDecription: 'Twitter B-Movie Screening Bot',
   content: (
     <>
-      <Typography variant="body1">
-        Experimental slow movie-screening Twitter bot, designed to screen the 1950s Ed Wood B-Movie
-        ‘Plan 9 From Outer Space’ on Twitter, one frame at a time, over the course of a year,
-        possibly setting a record for the longest movie screening in history. Built during the first
-        Covid lockdown using Node, ExpressJS, Firebase, React and Twitter.
-      </Typography>
+      <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 2 }}>
+        <Typography variant="body1">
+          Experimental slow movie-screening Twitter bot, designed to screen the 1950s Ed Wood
+          B-Movie ‘Plan 9 From Outer Space’ on Twitter, one frame at a time, over the course of a
+          year, possibly setting a record for the longest movie screening in history. Built during
+          the first Covid lockdown using Node, ExpressJS, Firebase, React and Twitter.
+        </Typography>
+      </Box>
       <Typography variant="body1">
         <Link href="https://github.com/barnardnicholas/plan9-bot" target="blank">
           Source code

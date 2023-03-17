@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, useTheme } from '@mui/material';
+import { Typography, useTheme } from '@mui/material';
 import CustomCard from '@components/customCard/CustomCard';
 import { standardTransitions } from '@/theme/constants';
 import { useParams } from 'react-router-dom';
@@ -66,7 +66,7 @@ function PortfolioItem() {
           </Typography>
         )}
         {!!techStack.length && <TechStackChips items={techStack} sx={{ mb: 4 }} />}
-        <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 2 }}>{portfolioItem.content}</Box>
+        {portfolioItem.content}
       </CustomCard>
     </PageContainer>
   );

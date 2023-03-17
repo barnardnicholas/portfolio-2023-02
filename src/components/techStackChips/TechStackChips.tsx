@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ElementType } from 'react';
 import CustomChip from '@components/customChip/CustomChip';
 import { TechStackItem } from '@constants/techStackItems';
 import { Box, SxProps, Theme } from '@mui/material';
@@ -7,6 +7,7 @@ const TechStackChips: React.FC<TechStackChipsProps> = ({
   items = [],
   sx = {},
   iconOnly = false,
+  component,
 }) => {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1, ...sx }}>
@@ -20,6 +21,7 @@ const TechStackChips: React.FC<TechStackChipsProps> = ({
           target="blank"
           isLastItem={i < items.length - 1 ? true : false}
           iconOnly={iconOnly}
+          component={component}
         />
       ))}
     </Box>
@@ -30,6 +32,7 @@ interface TechStackChipsProps {
   items: TechStackItem[];
   iconOnly?: boolean;
   sx?: SxProps<Theme>;
+  component?: ElementType;
 }
 
 export default TechStackChips;
