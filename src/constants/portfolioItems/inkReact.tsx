@@ -21,6 +21,11 @@ const inkReact: PortfolioItem = {
         </Typography>
       </Box>
       <Typography variant="body1" sx={{ mb: 3 }}>
+        <Link href="https://ink-react.nickbarnard.co.uk/" target="blank">
+          Hosted app
+        </Link>
+      </Typography>
+      <Typography variant="body1" sx={{ mb: 3 }}>
         <Link href="https://github.com/barnardnicholas/ink-react" target="blank">
           Source code
         </Link>

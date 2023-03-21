@@ -21,6 +21,11 @@ const crazyWall: PortfolioItem = {
         </Typography>
       </Box>
       <Typography variant="body1" sx={{ mb: 3 }}>
+        <Link href="https://crazywall.nickbarnard.co.uk/" target="blank">
+          Hosted app
+        </Link>
+      </Typography>
+      <Typography variant="body1" sx={{ mb: 3 }}>
         <Link href="https://github.com/barnardnicholas/crazy-wall" target="blank">
           Source code
         </Link>
