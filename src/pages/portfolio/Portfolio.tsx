@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import CustomCard from '@components/customCard/CustomCard';
 import { Grid, Typography } from '@mui/material';
 import RouterLink from '@components/routerLink/RouterLink';
-import portfolioItems, { portfolioSlugs } from '@constants/portfolioItems';
+import portfolioItems from '@constants/portfolioItems';
 import { PortfolioItem } from '@/types/shared';
 import PageContainer from '@components/layout/pageContainer/PageContainer';
 import Breadcrumb from '@components/breadcrumb/Breadcrumb';

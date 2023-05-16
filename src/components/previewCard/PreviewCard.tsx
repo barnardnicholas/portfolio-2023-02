@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
 import CustomCard from '@components/customCard/CustomCard';
-import { Box, Chip, SxProps, Theme, Typography, useTheme } from '@mui/material';
+import { SxProps, Theme, Typography, useTheme } from '@mui/material';
 import { addOpacityToColor, getTechStackItemsFromSlugs } from '@utils/utils';
-import { standardTransitions } from '@/theme/constants';
 import TechStackChips from '@components/techStackChips/TechStackChips';
 import { TechStackItem } from '@constants/techStackItems';
 

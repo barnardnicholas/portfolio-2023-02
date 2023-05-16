@@ -22,10 +22,6 @@ const PortfolioFilters: React.FC<PortfolioFiltersProps> = ({ filteredResults }) 
     });
   }, [filteredResults]);
 
-  const handleClearFilters = () => {
-    setSearchTerm('');
-  };
-
   const handleSearch = useCallback(
     (searchTerm: string) => {
       const updatedSearchParams = new URLSearchParams(searchParams.toString());
@@ -68,7 +64,7 @@ const PortfolioFilters: React.FC<PortfolioFiltersProps> = ({ filteredResults }) 
               key={`${item.slug}-${i}`}
               clickable
               onClick={() => setSearchTerm(item.name)}
-              onDelete={handleClearFilters}
+              onDelete={() => setSearchTerm('')}
               label={item.name}
               IconComponent={item.IconComponent ?? undefined}
               isLastItem={isLastItem}
