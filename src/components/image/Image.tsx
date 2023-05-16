@@ -1,7 +1,7 @@
 import { Box, SxProps, Theme } from '@mui/material';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
-const Image: React.FC<ImageProps> = ({ src, alt, sx = {} }) => {
+const Image: React.FC<ImageProps> = ({ src, alt, sx = {}, style = {} }) => {
   return (
     <Box
       sx={{
@@ -12,7 +12,7 @@ const Image: React.FC<ImageProps> = ({ src, alt, sx = {} }) => {
         ...sx,
       }}
     >
-      <img src={src} alt={alt} style={{}} />
+      <img src={src} alt={alt} style={style} />
     </Box>
   );
 };
@@ -21,6 +21,7 @@ interface ImageProps {
   src: string;
   alt?: string;
   sx?: SxProps<Theme>;
+  style?: CSSProperties;
 }
 
 export default Image;

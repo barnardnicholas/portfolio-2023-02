@@ -1,4 +1,4 @@
-import React, { MouseEvent, PropsWithChildren, useEffect, useRef, useState } from 'react';
+import React, { MouseEvent, PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
 import { useAtom } from 'jotai';
 import { useSpring, config, animated } from 'react-spring';
 import { mouseXYAtom, windowDimensionsAtom } from '@/atoms/atoms';
@@ -9,11 +9,11 @@ import CustomCard from '@components/customCard/CustomCard';
 import { techStack } from '@pages/home/constants';
 import usePreferReducedMotion from '@hooks/usePreferReducedMotion';
 import ContactLinks from '@components/contactLinks/ContactLinks';
-import { standardTransitions } from '@/theme/constants';
+import { standardTransitions, transformTransitions } from '@/theme/constants';
 import useClickedRectTracker from '@hooks/useClickedRectTracker';
+import HeroImage from '@components/animation/HeroImage';
 
 const AnimatedBox = animated(Box);
-const AnimatedTypography = animated(Typography);
 
 const CustomContainer: React.FC<CustomContainerProps> = ({ animationDisabled, children }) => {
   const baseStyles: SxProps<Theme> = { pt: { xs: 3, md: 6 }, pb: { xs: 3, md: 6 } };
@@ -114,21 +114,22 @@ const HeroCard: React.FC<HeroCardProps> = ({
     },
   });
 
-  const textStyles = useSpring({
-    config: { ...config.wobbly },
-    from: { transform: 'translateZ(0px)', textShadow: '0rem 0rem 0rem rgba(0,0,0,0)' },
-    to: {
-      transform: `translateZ(${isHovering && riseOnHover ? '20px' : '0px'})`,
-      textShadow: `0rem ${isHovering && riseOnHover ? '1rem' : '0rem'} ${
-        isHovering && riseOnHover ? '1rem' : '0rem'
-      } rgba(0,0,0,0.3)`,
-    },
-  });
+  const textStyles = useMemo(
+    () =>
+      isHovering && riseOnHover
+        ? {
+            transform: `translateZ(${isHovering ? '20px' : '0px'})`,
+            textShadow: `0rem 1rem 1rem rgba(0,0,0,0.3)`,
+          }
+        : { transform: 'translateZ(0px)', textShadow: '0rem 0rem 0rem rgba(0,0,0,0)' },
+    [isHovering, riseOnHover],
+  );
 
   if (effectDisabled)
     return (
       <Box ref={ref}>
         <CustomContainer animationDisabled>
+          <HeroImage effectDisabled />
           <Typography
             sx={{ mb: 0, textAlign: 'center', transition: standardTransitions(theme) }}
             variant="h1"
@@ -156,18 +157,19 @@ const HeroCard: React.FC<HeroCardProps> = ({
     >
       <AnimatedBox className="mouse-tilter" style={{ ...tiltStyles }}>
         <CustomContainer>
-          <AnimatedTypography
+          <HeroImage isHovering={isHovering} />
+          <Typography
             sx={{
               mb: 0,
               textAlign: 'center',
               backgroundColor: 'transparent',
-              transition: standardTransitions(theme),
+              transition: `${transformTransitions(theme)} ${standardTransitions(theme)}`,
+              ...textStyles,
             }}
-            style={textStyles}
             variant="h1"
           >
             Nick Barnard
-          </AnimatedTypography>
+          </Typography>
           <SecondaryContent />
         </CustomContainer>
       </AnimatedBox>

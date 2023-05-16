@@ -54,3 +54,9 @@ export const standardTransitions = (theme: Theme) =>
       easing: 'ease',
     },
   )}`;
+
+export const transformTransitions = (theme: Theme) =>
+  `${theme.transitions.create(['transform'], {
+    duration: '350ms',
+    easing: 'ease',
+  })}`;
