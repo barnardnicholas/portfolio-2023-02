@@ -17,3 +17,5 @@ dist
 .idea
 
 .firebase
+
+assets/artwork/*.psd
