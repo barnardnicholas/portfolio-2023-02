@@ -7,12 +7,14 @@ const CustomChip: React.FC<CustomChipProps> = ({
   label,
   clickable = true,
   component = 'span',
+  onClick,
   target,
   href,
   isLastItem = false,
   iconOnly = false,
   onDelete,
   sx = {},
+  variant = 'filled',
 }) => {
   const theme = useTheme();
 
@@ -33,6 +35,7 @@ const CustomChip: React.FC<CustomChipProps> = ({
     <Chip
       label={!iconOnly ? label : undefined}
       clickable={clickable}
+      onClick={onClick}
       sx={{
         mb: 1,
         minWidth: '2rem',
@@ -46,6 +49,7 @@ const CustomChip: React.FC<CustomChipProps> = ({
       icon={IconComponent ? <IconComponent /> : undefined}
       target={target}
       onDelete={onDelete}
+      variant={variant as 'filled' | 'outlined'}
     />
   );
 };
@@ -61,6 +65,8 @@ export interface CustomChipProps {
   isLastItem?: boolean;
   iconOnly?: boolean;
   onDelete?: VoidFunction;
+  variant?: 'filled' | 'outlined';
+  onClick?: VoidFunction;
 }
 
 export default CustomChip;
