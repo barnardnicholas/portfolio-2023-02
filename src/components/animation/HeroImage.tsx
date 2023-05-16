@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Box, SxProps, Theme, useTheme } from '@mui/material';
 import Image from '@components/image/Image';
 import HeroBg from '@assets/images/hero/hero-image-bg.jpg';
+import HeroImage from '@assets/images/hero/hero-image.jpg';
 import HeroBody from '@assets/images/hero/hero-image-body.png';
 import HeroHead from '@assets/images/hero/hero-image-head.png';
 import { transformTransitions } from '@/theme/constants';
@@ -51,59 +52,74 @@ const HeroCard: React.FC<HeroImageProps> = ({ isHovering = false, effectDisabled
     [isHovering, effectDisabled],
   );
 
-  return (
-    <>
-      <Box
+  if (effectDisabled)
+    return (
+      <Image
+        src={HeroImage}
+        alt="Hero image"
         sx={{
-          perspective: '1000px',
-          transformStyle: 'preserve-3d',
-          mb: '2rem',
+          borderRadius: '50%',
+          overflow: 'hidden',
           width: '15rem',
           height: '15rem',
+          maxWidth: '80vw',
+          maxHeight: '80vw',
+          mb: '1rem',
+        }}
+        style={{ width: '100%', height: '100%' }}
+      />
+    );
+
+  return (
+    <Box
+      sx={{
+        perspective: '1000px',
+        transformStyle: 'preserve-3d',
+        mb: '2rem',
+        width: '15rem',
+        height: '15rem',
+      }}
+    >
+      <Box
+        className="hero-image-background"
+        sx={{
+          width: '15rem',
+          height: '15rem',
+          borderRadius: '50%',
+          position: 'absolute',
+          transition: transformTransitions(theme),
+          ...backgroundStyles,
         }}
       >
-        <Box
-          className="hero-image-background"
-          sx={{
-            width: '15rem',
-            height: '15rem',
-            // border: `2px solid ${theme.palette.text.secondary}`,
-            borderRadius: '50%',
-            position: 'absolute',
-            transition: transformTransitions(theme),
-            ...backgroundStyles,
-          }}
-        >
-          <Image src={HeroBg} alt="Background image" sx={{ ...layerStyle }} />
-        </Box>
-        <Box
-          className="hero-image-body"
-          sx={{
-            width: '15rem',
-            height: '15rem',
-            borderRadius: '50%',
-            position: 'absolute',
-            transition: transformTransitions(theme),
-            ...bodyStyles,
-          }}
-        >
-          <Image src={HeroBody} alt="Body image" sx={layerStyle} />
-        </Box>
-        <Box
-          className="hero-image-head"
-          sx={{
-            width: '15rem',
-            height: '15rem',
-            borderRadius: '50%',
-            position: 'absolute',
-            transition: transformTransitions(theme),
-            ...headStyles,
-          }}
-        >
-          <Image src={HeroHead} alt="Body image" sx={layerStyle} />
-        </Box>
+        <Image src={HeroBg} alt="Background image" sx={{ ...layerStyle }} />
       </Box>
-    </>
+      <Box
+        className="hero-image-body"
+        sx={{
+          width: '15rem',
+          height: '15rem',
+          borderRadius: '50%',
+          position: 'absolute',
+          transition: transformTransitions(theme),
+          ...bodyStyles,
+        }}
+      >
+        <Image src={HeroBody} alt="Body image" sx={layerStyle} />
+      </Box>
+      <Box
+        className="hero-image-head"
+        sx={{
+          width: '15rem',
+          height: '15rem',
+          borderRadius: '50%',
+          position: 'absolute',
+          transition: transformTransitions(theme),
+          ...headStyles,
+        }}
+      >
+        <Image src={HeroHead} alt="Body image" sx={layerStyle} />
+      </Box>
+    </Box>
   );
 };
 
