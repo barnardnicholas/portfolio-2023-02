@@ -65,7 +65,14 @@ function PortfolioItem() {
             {portfolioItem.subtitle}
           </Typography>
         )}
-        {!!techStack.length && <TechStackChips items={techStack} sx={{ mb: 4 }} />}
+        {!!techStack.length && (
+          <TechStackChips
+            items={techStack}
+            sx={{ mb: 4 }}
+            getHref={({ name }) => `/portfolio?s=${name}`}
+            clickable
+          />
+        )}
         {portfolioItem.content}
       </CustomCard>
     </PageContainer>

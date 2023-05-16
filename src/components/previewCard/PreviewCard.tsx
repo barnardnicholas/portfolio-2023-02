@@ -56,7 +56,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({
       <Typography variant="body1" sx={{ mb: 1 }}>
         {subtitle || ' '}
       </Typography>
-      <TechStackChips items={filteredTechStack} iconOnly />
+      <TechStackChips items={filteredTechStack} iconOnly clickable={false} />
     </CustomCard>
   );
 };

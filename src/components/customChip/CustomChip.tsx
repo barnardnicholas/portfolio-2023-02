@@ -5,8 +5,8 @@ import { Chip, SxProps, Theme, useTheme } from '@mui/material';
 const CustomChip: React.FC<CustomChipProps> = ({
   IconComponent,
   label,
-  clickable,
-  component = 'a',
+  clickable = true,
+  component = 'span',
   target,
   href,
   isLastItem = false,
@@ -50,7 +50,7 @@ const CustomChip: React.FC<CustomChipProps> = ({
   );
 };
 
-interface CustomChipProps {
+export interface CustomChipProps {
   IconComponent?: React.FC;
   label?: string;
   clickable?: boolean;
