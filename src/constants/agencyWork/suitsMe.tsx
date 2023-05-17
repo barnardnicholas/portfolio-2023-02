@@ -1,7 +1,7 @@
-import { AgencyWork } from '@/types/shared';
+import { AgencyWorkItem } from '@/types/shared';
 import { Box, Link, Typography } from '@mui/material';
 
-const suitsMe: AgencyWork = {
+const suitsMe: AgencyWorkItem = {
   slug: 'suits-me',
   title: 'Suits Me Banking',
   thumbnail: '',

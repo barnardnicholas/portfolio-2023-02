@@ -1,7 +1,7 @@
-import { AgencyWork } from '@/types/shared';
+import { AgencyWorkItem } from '@/types/shared';
 import { Box, Typography } from '@mui/material';
 
-const decathlonLeader: AgencyWork = {
+const decathlonLeader: AgencyWorkItem = {
   slug: 'decathlon-leader',
   title: 'Decathlon Leader',
   thumbnail: '',

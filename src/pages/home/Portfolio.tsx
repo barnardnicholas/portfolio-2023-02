@@ -8,6 +8,7 @@ import PreviewCard from '@components/previewCard/PreviewCard';
 import { getPortfolioImagePathFromSlug } from '@utils/utils';
 import { useAtom } from 'jotai';
 import { themeAtom } from '@/atoms/atoms';
+import { Link } from 'react-router-dom';
 
 function Portfolio() {
   const [currentTheme] = useAtom(themeAtom);
@@ -22,9 +23,14 @@ function Portfolio() {
         minWidth: '100%',
       }}
     >
-      <Typography variant="h2" sx={{ mb: 3 }}>
-        PORTFOLIO & OTHER PROJECTS
-      </Typography>
+      <Link to="/portfolio" style={{ color: 'inherit', textDecoration: 'none' }}>
+        <Typography variant="h2" sx={{ mb: 0 }}>
+          PORTFOLIO & OTHER PROJECTS
+        </Typography>
+        <Typography variant="body1" sx={{ mb: 5 }}>
+          Personal Projects, Prototypes & Proofs-of-concept:
+        </Typography>
+      </Link>
       <Grid container spacing={2}>
         {portfolioSlugs.map((slug: string, i: number) => {
           const item: PortfolioItem = portfolioItems[slug] || portfolioItems.blank;

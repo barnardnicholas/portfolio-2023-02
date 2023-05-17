@@ -50,7 +50,10 @@ function PortfolioItem() {
             border: `1px solid ${addOpacityToColor('#000000', 0.2)}`,
           }}
         />
-        <Typography sx={{ mb: 0, transition: standardTransitions(theme) }} variant="h1">
+        <Typography
+          sx={{ mb: portfolioItem.subtitle ? 0 : 1, transition: standardTransitions(theme) }}
+          variant="h1"
+        >
           {portfolioItem.title}
         </Typography>
         {portfolioItem.subtitle && (
@@ -58,7 +61,7 @@ function PortfolioItem() {
             sx={{
               transition: standardTransitions(theme),
               columnCount: 2,
-              mb: portfolioItem.techStack.length ? 1 : 4,
+              mb: techStack.length ? 1 : 4,
             }}
             variant="body1"
           >

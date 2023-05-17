@@ -19,6 +19,6 @@ export interface PortfolioItem extends BaseWorkItem {
   status: string | null;
 }
 
-export interface AgencyWork extends BaseWorkItem {
+export interface AgencyWorkItem extends BaseWorkItem {
   client: string | null;
 }

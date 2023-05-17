@@ -1,7 +1,7 @@
-import { AgencyWork } from '@/types/shared';
+import { AgencyWorkItem } from '@/types/shared';
 import { Box, Link, Typography } from '@mui/material';
 
-const bolsterSystems: AgencyWork = {
+const bolsterSystems: AgencyWorkItem = {
   slug: 'bolster-systems',
   title: 'Bolster Systems',
   thumbnail: '',

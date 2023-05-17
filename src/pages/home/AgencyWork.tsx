@@ -7,6 +7,7 @@ import PreviewCard from '@components/previewCard/PreviewCard';
 import { getAgencyImagePathFromSlug } from '@utils/utils';
 import { useAtom } from 'jotai';
 import { themeAtom } from '@/atoms/atoms';
+import { Link } from 'react-router-dom';
 
 function AgencyWork() {
   const [currentTheme] = useAtom(themeAtom);
@@ -21,7 +22,11 @@ function AgencyWork() {
         minWidth: '100%',
       }}
     >
-      <Typography variant="h2">Agency Work: 2020-Present</Typography>
+      <Link to="/agency-work" style={{ color: 'inherit', textDecoration: 'none' }}>
+        <Typography variant="h2" sx={{ mb: 0 }}>
+          Agency Work: 2020-Present
+        </Typography>
+      </Link>
       <Typography variant="body1" sx={{ mb: 5 }}>
         A few examples of client work I’ve been a part of delivering recently:
       </Typography>

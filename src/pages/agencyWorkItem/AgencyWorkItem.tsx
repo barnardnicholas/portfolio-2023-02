@@ -6,9 +6,14 @@ import { useParams } from 'react-router-dom';
 import PageContainer from '@components/layout/pageContainer/PageContainer';
 import Breadcrumb from '@components/breadcrumb/Breadcrumb';
 import agencyWork from '@constants/agencyWork';
-import { addOpacityToColor, getAgencyImagePathFromSlug } from '@utils/utils';
+import {
+  addOpacityToColor,
+  getAgencyImagePathFromSlug,
+  getTechStackItemsFromSlugs,
+} from '@utils/utils';
 import { useAtom } from 'jotai';
 import { themeAtom } from '@/atoms/atoms';
+import TechStackChips from '@components/techStackChips/TechStackChips';
 
 function AgencyWorkItem() {
   const theme = useTheme();
@@ -17,6 +22,8 @@ function AgencyWorkItem() {
 
   const agencyWorkItem = agencyWork[slug || 'blank'];
   if (!slug || !agencyWorkItem) return null;
+
+  const techStack = getTechStackItemsFromSlugs(agencyWorkItem.techStack);
 
   const agencyWorkItemBreadcrumb = [
     { name: 'Agency Work', path: '/agency-work' },
@@ -42,15 +49,31 @@ function AgencyWorkItem() {
             border: `1px solid ${addOpacityToColor('#000000', 0.2)}`,
           }}
         />
-        <Typography sx={{ mb: 0, transition: standardTransitions(theme) }} variant="h1">
+        <Typography
+          sx={{ mb: agencyWorkItem.subtitle ? 0 : 1, transition: standardTransitions(theme) }}
+          variant="h1"
+        >
           {agencyWorkItem.title}
         </Typography>
         {agencyWorkItem.subtitle && (
-          <Typography sx={{ mb: 0, transition: standardTransitions(theme) }} variant="body1">
+          <Typography
+            sx={{
+              mb: techStack.length ? 1 : 4,
+              transition: standardTransitions(theme),
+            }}
+            variant="body1"
+          >
             {agencyWorkItem.subtitle}
           </Typography>
         )}
-        <Box sx={{ mb: 4 }} />
+        {!!techStack.length && (
+          <TechStackChips
+            items={techStack}
+            sx={{ mb: 4 }}
+            getHref={({ name }) => `/agency-work?s=${name}`}
+            clickable
+          />
+        )}
         {agencyWorkItem.content}
       </CustomCard>
     </PageContainer>

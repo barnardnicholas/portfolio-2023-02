@@ -10,7 +10,7 @@ import PreviewCard from '@components/previewCard/PreviewCard';
 import { getPortfolioImagePathFromSlug } from '@utils/utils';
 import { useAtom } from 'jotai';
 import { themeAtom } from '@/atoms/atoms';
-import PortfolioFilters from './PortfolioFilters';
+import PortfolioFilters from '@components/filters/PortfolioFilters';
 import { useSearchParams } from 'react-router-dom';
 import techStackItems, { TechStackItem } from '@constants/techStackItems';
 

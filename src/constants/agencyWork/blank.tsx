@@ -1,6 +1,6 @@
-import { AgencyWork } from '@/types/shared';
+import { AgencyWorkItem } from '@/types/shared';
 
-const blank: AgencyWork = {
+const blank: AgencyWorkItem = {
   slug: '',
   title: '',
   thumbnail: '',

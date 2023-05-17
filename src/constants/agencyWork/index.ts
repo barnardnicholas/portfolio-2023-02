@@ -1,10 +1,10 @@
-import { AgencyWork } from '@/types/shared';
+import { AgencyWorkItem } from '@/types/shared';
 import blank from './blank';
 import decathlonLeader from './decathlonLeader';
 import bolsterSystems from './bolsterSystems';
 import suitsMe from './suitsMe';
 
-const agencyWork: Record<string, AgencyWork> = {
+const agencyWork: Record<string, AgencyWorkItem> = {
   blank,
   [decathlonLeader.slug]: decathlonLeader,
   [bolsterSystems.slug]: bolsterSystems,
