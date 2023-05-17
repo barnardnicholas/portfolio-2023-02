@@ -13,7 +13,9 @@ const TechStackChips: React.FC<TechStackChipsProps> = ({
   clickable = false,
 }) => {
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGap: 1, ...sx }}>
+    <Box
+      sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start', flexGap: 1, ...sx }}
+    >
       {items.map((item: TechStackItem, i: number) => {
         const chipProps: CustomChipProps = {
           clickable: clickable,

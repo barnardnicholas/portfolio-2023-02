@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { Box, TextField } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import techStackItems, { TechStackItem } from '@constants/techStackItems';
 import CustomChip from '@components/customChip/CustomChip';
@@ -49,7 +49,14 @@ const PortfolioFilters: React.FC<PortfolioFiltersProps> = ({ filteredResults }) 
 
   return (
     <>
-      <Box sx={{ mb: 1 }}>
+      <Box
+        sx={{
+          mb: 1,
+          display: 'flex',
+          alignItems: { sm: 'center', xs: 'flex-start' },
+          flexDirection: { sm: 'row', xs: 'column' },
+        }}
+      >
         <TextField
           value={searchTerm}
           onChange={(e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
@@ -63,6 +70,13 @@ const PortfolioFilters: React.FC<PortfolioFiltersProps> = ({ filteredResults }) 
           }}
           label="Search technologies"
         />
+        {searchTerm.length > 0 && (
+          <Typography variant="body1" sx={{ ml: { sm: 2, xs: 1 } }}>
+            {filteredResults.length
+              ? `${filteredResults.length} result${filteredResults.length > 1 ? 's' : ''} found.`
+              : 'No results found.'}
+          </Typography>
+        )}
       </Box>
       <Box sx={{ mb: 4 }}>
         {filteredTechChips.map((item: TechStackItem, i: number) => {

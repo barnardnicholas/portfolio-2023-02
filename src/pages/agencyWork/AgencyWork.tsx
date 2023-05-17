@@ -16,7 +16,7 @@ import PortfolioFilters from '@components/filters/PortfolioFilters';
 
 function AgencyWork() {
   const [searchParams] = useSearchParams();
-  const agencyWorkBreadcrumb = [{ name: 'Portfolio' }];
+  const agencyWorkBreadcrumb = [{ name: 'Agency Work' }];
   const [currentTheme] = useAtom(themeAtom);
 
   const filteredResults = useMemo<AgencyWorkItem[]>(() => {
