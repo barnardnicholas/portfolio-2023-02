@@ -19,39 +19,23 @@ function Summary() {
       <Typography variant="h2">Summary</Typography>
       <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 2 }}>
         <Typography variant="body1">
-          Full-stack Javascript Developer specialising in React/React Native. Adept in Node,
-          Typescript, Redux. Working knowledge of Git VCS, as well as AWS/GCP microservices.
+          Mid-level Front-end Developer with 3+ years of experience delivering products at scale for
+          a large range of clients, specializing in front-end React/React Native with Typescript.
         </Typography>
         <Typography variant="body1">
-          Currently mid-level Front-End Dev at CTI Digital, Manchester, UK. Based in Toronto from
-          June 2023, actively seeking full-time work as a Mid/Senior Javascript Developer.
+          I’m passionate about collaborating with diverse, multi-disciplined teams to develop great
+          UX & UI through clean, scalable code using modern technology and best practices. One
+          project database recently surpassed 100 million rows of organic customer data, and the
+          client is enjoying 15% fewer in-production bugs this year than any other year.
         </Typography>
         <Typography variant="body1">
-          Solid experience with multiple digital agencies, comfortable with Agile/SCRUM. Have
-          shipped and maintained a wide range of projects for clients across numerous sectors,
-          including finance, commerce and construction.
-        </Typography>
-        <Typography variant="body1">
-          Strong troubleshooting & critical support skills after experience on fire-fighting teams.
-        </Typography>
-        <Typography variant="body1">
-          Passionate about developing great UX&UI through clean, readable code using modern
-          technology.
-        </Typography>
-        <Typography variant="body1">
-          Previously spent 10 years in the Audio Industry as a sound engineer and studio technician,
-          working with industry-leading equipment & software and a range of clients.
-        </Typography>
-        <Typography variant="body1">
-          Considerable working experience in various media software incl. Pro Tools, Cubase, Ableton
-          Live, Logic Pro X.
-        </Typography>
-        <Typography variant="body1">
-          Comfortable with Adobe Creative Cloud apps incl. Photoshop, Lightroom, Premiere Pro, etc.
+          I’ve developed battle-tested troubleshooting & critical support skills after experience on
+          project & fire-fighting teams. This allowed my team and I to cut app-breaking project bugs
+          by 20-50% over a 3 month period.
         </Typography>
         <Typography variant="body1">
           I firmly believe that a positive, problem-solving attitude and a supportive company
-          culture is essential to a healthy work environment. I do my best to be a force for good
+          culture is essential to delivering value for clients. I do my best to be a force for good
           wherever I work, and I try to devote equal attention to both technical and soft skills.
         </Typography>
       </Box>
