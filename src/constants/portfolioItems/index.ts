@@ -5,10 +5,12 @@ import inkReact from './inkReact';
 import ntgtfoi from './ntgtfoi';
 import plan9 from './plan9';
 import crazyWall from './crazyWall';
+import ntchuva from './ntchuva';
 
 const portfolioItems: Record<string, PortfolioItem> = {
   blank,
   [abra.slug]: abra,
+  [ntchuva.slug]: ntchuva,
   [inkReact.slug]: inkReact,
   [plan9.slug]: plan9,
   [crazyWall.slug]: crazyWall,

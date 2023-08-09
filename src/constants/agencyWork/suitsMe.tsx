@@ -1,5 +1,5 @@
 import { AgencyWorkItem } from '@/types/shared';
-import { Box, Link, Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 
 const suitsMe: AgencyWorkItem = {
   slug: 'suits-me',
@@ -20,15 +20,26 @@ const suitsMe: AgencyWorkItem = {
   shortDecription: 'Banking app for web & mobile',
   content: (
     <>
-      <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 2 }}>
-        <Typography variant="body1">
-          Web & Mobile app - React JS/TS, React Native. Suits Me offer banking services to people
-          with poor credit history, no fixed address or similar unusual circumstances. Silverchip
-          developed and maintain their web and mobile online banking apps, working alongside
-          industry-standard APIs provided by Suits Me’s fintech partners. The app was required to be
-          fully PEN-tested by a third-party service before release.
-        </Typography>
-      </Box>
+      <Typography variant="body1">Web & Mobile app - React JS/TS, React Native.</Typography>
+      <Typography variant="body1">
+        Banking alternative for customers in poor financial conditions.
+      </Typography>
+      <Typography variant="body1">
+        <ul>
+          <li style={{ paddingBottom: '0.5rem' }}>
+            Worked closely with our backend teams, as well as the client&apos;s fintech partners to
+            ensure smooth operation across several microservices
+          </li>
+          <li style={{ paddingBottom: '0.5rem' }}>
+            Added Sentry logging to mobile app, which allowed the team to trace and fix ~40% of
+            outstanding bug reports
+          </li>
+          <li style={{ paddingBottom: '0.5rem' }}>
+            Designed a reusable front-end error-handling system to catch bugs in low-connectivity
+            situations, which was subsequently added to other apps
+          </li>
+        </ul>
+      </Typography>
       <Typography variant="body1">
         <Link href="https://suitsmecard.com" target="blank">
           Web app

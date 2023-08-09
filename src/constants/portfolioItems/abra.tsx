@@ -20,7 +20,7 @@ const abra: PortfolioItem = {
         </Typography>
       </Box>
       <Typography variant="body1" sx={{ mb: 3 }}>
-        <Link href="https://abra.nickbarnard.co.uk" target="blank">
+        <Link href="https://abra.nickbarnard.dev" target="blank">
           Hosted app
         </Link>
       </Typography>

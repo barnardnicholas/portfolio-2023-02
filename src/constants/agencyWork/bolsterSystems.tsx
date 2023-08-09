@@ -1,5 +1,5 @@
 import { AgencyWorkItem } from '@/types/shared';
-import { Box, Link, Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 
 const bolsterSystems: AgencyWorkItem = {
   slug: 'bolster-systems',
@@ -20,16 +20,27 @@ const bolsterSystems: AgencyWorkItem = {
   shortDecription: 'Safety & compliance tool',
   content: (
     <>
-      <Box sx={{ columnCount: { xs: 1, md: 2 }, columnGap: 2 }}>
-        <Typography variant="body1" sx={{ mb: 3 }}>
-          Web & Mobile app - React JS/TS, React Native, Redux. Large, multi-national fire safety
-          inspection & installation management system, combining streamlined industry-standard
-          compliance and automation of safety documentation for trade professionals. The system has
-          a very large (and growing) client base. One of the databases recently passed 100 million
-          rows of organic client data. As a Front-end dev I’ve worked on the web and mobile apps
-          regularly for the last year. Website:
-        </Typography>
-      </Box>
+      <Typography variant="body1">Web & Mobile app - React, React Native, Redux</Typography>
+      <Typography variant="body1">
+        Building safety inspection & installation management system for trade professionals.
+      </Typography>
+      <Typography variant="body1" sx={{ mb: 3 }}>
+        <ul>
+          <li style={{ paddingBottom: '0.5rem' }}>
+            Collaborated with the client’s management & design teams to refine and deliver their
+            flagship product for web & mobile
+          </li>
+          <li style={{ paddingBottom: '0.5rem' }}>
+            Oversaw adding of several new features, delivering considerable customer value
+          </li>
+          <li style={{ paddingBottom: '0.5rem' }}>
+            Successfully reduced technical debt within codebase by ~10-15%
+          </li>
+          <li style={{ paddingBottom: '0.5rem' }}>
+            Worked on critical support tickets with a near-100% success rate
+          </li>
+        </ul>
+      </Typography>
       <Typography variant="body1" sx={{ mb: 3 }}>
         <Link href="https://app.bolstersystems.com" target="blank">
           Web app
