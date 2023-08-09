@@ -1,7 +1,7 @@
 import { PortfolioItem } from '@/types/shared';
 import { Typography, Link, Box } from '@mui/material';
 
-const abra: PortfolioItem = {
+const ntchuva: PortfolioItem = {
   slug: 'ntchuva',
   title: 'Ntchuva',
   thumbnail: '',
@@ -31,4 +31,4 @@ const abra: PortfolioItem = {
   ),
 };
 
-export default abra;
+export default ntchuva;
